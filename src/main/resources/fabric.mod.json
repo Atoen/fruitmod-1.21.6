@@ -1,0 +1,51 @@
+{
+	"schemaVersion": 1,
+	"id": "fruitmod",
+	"version": "${version}",
+	"name": "FruitMod",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/fruitmod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"fabric-datagen": [
+			"fruitmod.datagen.ModDataGenerator"
+		],
+		"main": [
+			{
+				"value": "fruitmod.FruitMod",
+				"adapter": "kotlin"
+			}
+		],
+		"client": [
+			{
+				"value": "fruitmod.FruitModClient",
+				"adapter": "kotlin"
+			}
+		]
+	},
+	"mixins": [
+		"fruitmod.mixins.json",
+		{
+			"config": "fruitmod.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.14",
+		"minecraft": "~1.21.6",
+		"java": ">=21",
+		"fabric-api": "*",
+		"fabric-language-kotlin": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
