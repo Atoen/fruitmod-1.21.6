@@ -1,2 +1,4 @@
 // 1.21.6	-999999999-01-01T00:00:00	FruitMod/Tags for minecraft:item
 7d1a04efaf2bb834d9408ae57337ddfda5be525f data/fruitmod/tags/item/fruity_items.json
+58ec5fe2f0f3c7ebb6a9c5069f7214ced4a8b6bb data/minecraft/tags/item/logs_that_burn.json
+f34ecd3925de9062426b00cedaf89e16cab826f5 data/minecraft/tags/item/planks.json

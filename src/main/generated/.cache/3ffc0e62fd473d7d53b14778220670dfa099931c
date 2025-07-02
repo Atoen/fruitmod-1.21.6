@@ -1,2 +1,10 @@
 // 1.21.6	-999999999-01-01T00:00:00	FruitMod/Block Loot Tables
+545096255060709eba7606df48e4658e5dee8210 data/fruitmod/loot_table/blocks/driftwood_leaves.json
+037680dacbb0d7b6c516851d3e646fd34ed327a2 data/fruitmod/loot_table/blocks/driftwood_log.json
+f766524b613a77944196c33a5c1c2c3f1054ed4b data/fruitmod/loot_table/blocks/driftwood_planks.json
+557e9e751b3b294d8e87fa6a8cc3da8e91385aae data/fruitmod/loot_table/blocks/driftwood_sapling.json
+370bfdf0b73f8eb00542a8a212ca251f021dd73b data/fruitmod/loot_table/blocks/driftwood_wood.json
+9a19988eaabaa316db22ad52228b4e021adf9fed data/fruitmod/loot_table/blocks/honey_berry_bush.json
+ce1d3333271b6e0801c78be216485c04e8ed5dd7 data/fruitmod/loot_table/blocks/stripped_driftwood_log.json
+dd29629369b573411de7b69b8d15fe7e6e7d6985 data/fruitmod/loot_table/blocks/stripped_driftwood_wood.json
 2e56c9870deff9e0c5e5661a299b3615ccab4058 data/minecraft/loot_table/blocks/dirt.json

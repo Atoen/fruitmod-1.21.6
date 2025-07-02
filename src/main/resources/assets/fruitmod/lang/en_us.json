@@ -4,5 +4,21 @@
   "item.fruitmod.orange_slice": "Orange Slice",
   "itemgroup.fruitmod.mod_items": "Fruit Mod",
   "item.fruitmod.orange_tree_sapling": "Orange Tree Sapling",
-  "item.fruitmod.compacted_dirt": "Compacted Dirt"
+  "item.fruitmod.compacted_dirt": "Compacted Dirt",
+  "item.fruitmod.honey_berries": "Honey Berries",
+  "block.fruitmod.honey_berry_bush": "Honey Berry Bush",
+  "block.fruitmod.driftwood_log": "Driftwood Log",
+  "block.fruitmod.driftwood_wood": "Driftwood Wood",
+  "block.fruitmod.stripped_driftwood_log": "Stripped Driftwood Log",
+  "block.fruitmod.stripped_driftwood_wood": "Stripped Driftwood Wood",
+  "block.fruitmod.driftwood_planks": "Driftwood Planks",
+  "block.fruitmod.driftwood_leaves": "Driftwood Leaves",
+  "block.fruitmod.driftwood_sapling": "Driftwood Sapling",
+  "item.fruitmod.driftwood_log": "Driftwood Log",
+  "item.fruitmod.driftwood_wood": "Driftwood Wood",
+  "item.fruitmod.stripped_driftwood_log": "Stripped Driftwood Log",
+  "item.fruitmod.stripped_driftwood_wood": "Stripped Driftwood Wood",
+  "item.fruitmod.driftwood_planks": "Driftwood Planks",
+  "item.fruitmod.driftwood_leaves": "Driftwood Leaves",
+  "item.fruitmod.driftwood_sapling": "Driftwood Sapling"
 }
