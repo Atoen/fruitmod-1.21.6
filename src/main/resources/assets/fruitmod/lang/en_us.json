@@ -1,8 +1,27 @@
 {
   "item.fruitmod.suspicious_substance": "Suspicious Substance",
+
+  "item.fruitmod.banana": "Banana",
+  "item.fruitmod.blueberry": "Blueberry",
+  "item.fruitmod.cherries": "Cherries",
+  "item.fruitmod.coconut": "Coconut",
+  "item.fruitmod.open_coconut": "Open Coconut",
+  "item.fruitmod.grapes": "Grapes",
+  "item.fruitmod.kiwi": "Kiwi",
+  "item.fruitmod.lemon": "Lemon",
+  "item.fruitmod.lemon_slice": "Lemon Slice",
+  "item.fruitmod.lime": "Lime",
+  "item.fruitmod.lime_slice": "Lime Slice",
+  "item.fruitmod.mango": "Mango",
   "item.fruitmod.orange": "Orange",
   "item.fruitmod.orange_slice": "Orange Slice",
-  "itemgroup.fruitmod.mod_items": "Fruit Mod",
+  "item.fruitmod.papaya": "Papaya",
+  "item.fruitmod.peach": "Peach",
+  "item.fruitmod.pear": "Pear",
+  "item.fruitmod.pineapple": "Pineapple",
+  "item.fruitmod.raspberry": "Raspberry",
+  "item.fruitmod.strawberry": "Strawberry",
+
   "item.fruitmod.orange_tree_sapling": "Orange Tree Sapling",
   "item.fruitmod.compacted_dirt": "Compacted Dirt",
   "item.fruitmod.honey_berries": "Honey Berries",
@@ -20,5 +39,7 @@
   "item.fruitmod.stripped_driftwood_wood": "Stripped Driftwood Wood",
   "item.fruitmod.driftwood_planks": "Driftwood Planks",
   "item.fruitmod.driftwood_leaves": "Driftwood Leaves",
-  "item.fruitmod.driftwood_sapling": "Driftwood Sapling"
+  "item.fruitmod.driftwood_sapling": "Driftwood Sapling",
+
+  "itemgroup.fruitmod.mod_items": "FruitMod"
 }

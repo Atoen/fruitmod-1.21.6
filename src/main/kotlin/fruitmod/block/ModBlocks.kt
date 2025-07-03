@@ -57,7 +57,7 @@ object ModBlocks {
         copySettings(Blocks.OAK_PLANKS))
 
     val DRIFTWOOD_LEAVES = registerBlock("driftwood_leaves",
-        copySettings(Blocks.OAK_LEAVES).ticksRandomly(),
+        copySettings(Blocks.OAK_LEAVES),
         ::DriftwoodLeavesBlock
     )
 

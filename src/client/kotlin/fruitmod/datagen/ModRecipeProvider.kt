@@ -6,7 +6,6 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider
 import net.minecraft.data.recipe.RecipeExporter
 import net.minecraft.data.recipe.RecipeGenerator
 import net.minecraft.recipe.book.RecipeCategory
-import net.minecraft.registry.RegistryKeys
 import net.minecraft.registry.RegistryWrapper
 import java.util.concurrent.CompletableFuture
 
@@ -31,11 +30,28 @@ private class ModRecipeGenerator(
 ) : RecipeGenerator(registryLookup, exporter) {
 
     override fun generate() {
-        val itemLookup = registries.getOrThrow(RegistryKeys.ITEM)
-
+        // Orange -> 4 Orange Slices
         createShapeless(RecipeCategory.FOOD, ModItems.ORANGE_SLICE, 4)
             .input(ModItems.ORANGE)
             .criterion(hasItem(ModItems.ORANGE), conditionsFromItem(ModItems.ORANGE))
+            .offerTo(exporter)
+
+        // Lemon -> 4 Lemon Slices
+        createShapeless(RecipeCategory.FOOD, ModItems.LEMON_SLICE, 4)
+            .input(ModItems.LEMON)
+            .criterion(hasItem(ModItems.LEMON), conditionsFromItem(ModItems.LEMON))
+            .offerTo(exporter)
+
+        // Lime -> 3 Lime Slices
+        createShapeless(RecipeCategory.FOOD, ModItems.LIME_SLICE, 3)
+            .input(ModItems.LIME)
+            .criterion(hasItem(ModItems.LIME), conditionsFromItem(ModItems.LIME))
+            .offerTo(exporter)
+
+        // Coconut -> Open Coconut
+        createShapeless(RecipeCategory.FOOD, ModItems.OPEN_COCONUT)
+            .input(ModItems.COCONUT)
+            .criterion(hasItem(ModItems.COCONUT), conditionsFromItem(ModItems.COCONUT))
             .offerTo(exporter)
     }
 }

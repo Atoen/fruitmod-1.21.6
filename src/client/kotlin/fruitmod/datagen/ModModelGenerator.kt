@@ -13,7 +13,7 @@ import net.minecraft.client.data.TexturedModel
 import net.minecraft.client.data.VariantsBlockModelDefinitionCreator
 import net.minecraft.client.render.model.json.ModelVariant
 import net.minecraft.client.render.model.json.WeightedVariant
-import net.minecraft.util.collection.Pool;
+import net.minecraft.util.collection.Pool
 import net.minecraft.item.Item
 
 class ModModelGenerator(output: FabricDataOutput) : FabricModelProvider(output) {
@@ -29,7 +29,6 @@ class ModModelGenerator(output: FabricDataOutput) : FabricModelProvider(output) 
             .wood(ModBlocks.STRIPPED_DRIFTWOOD_WOOD)
 
         generator.registerSimpleCubeAll(ModBlocks.DRIFTWOOD_PLANKS)
-//        generator.registerSingleton(ModBlocks.DRIFTWOOD_LEAVES, TexturedModel.LEAVES)
         generator.registerTintableCross(ModBlocks.DRIFTWOOD_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED)
 
         val baseModel = TexturedModel.LEAVES.upload(ModBlocks.DRIFTWOOD_LEAVES, generator.modelCollector)
@@ -43,7 +42,27 @@ class ModModelGenerator(output: FabricDataOutput) : FabricModelProvider(output) 
 
     override fun generateItemModels(generator: ItemModelGenerator) {
         generator.registerGenerated(
-            ModItems.ORANGE, ModItems.ORANGE_SLICE, ModItems.HONEY_BERRIES
+            ModItems.BANANA,
+            ModItems.BLUEBERRY,
+            ModItems.CHERRIES,
+            ModItems.COCONUT,
+            ModItems.OPEN_COCONUT,
+            ModItems.GRAPES,
+            ModItems.HONEY_BERRIES,
+            ModItems.KIWI,
+            ModItems.LEMON,
+            ModItems.LEMON_SLICE,
+            ModItems.LIME,
+            ModItems.LIME_SLICE,
+            ModItems.MANGO,
+            ModItems.ORANGE,
+            ModItems.ORANGE_SLICE,
+            ModItems.PAPAYA,
+            ModItems.PEACH,
+            ModItems.PEAR,
+            ModItems.PINEAPPLE,
+            ModItems.RASPBERRY,
+            ModItems.STRAWBERRY
         )
     }
 }
