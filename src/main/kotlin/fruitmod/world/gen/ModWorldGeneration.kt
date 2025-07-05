@@ -1,9 +1,9 @@
 package fruitmod.world.gen
 
-class ModWorldGenerationClass {
+class ModWorldGeneration {
     companion object {
         fun generateModWorldGen() {
-
+            ModTreeGeneration.generateTrees()
         }
     }
 }

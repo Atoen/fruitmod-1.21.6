@@ -17,7 +17,7 @@ import net.minecraft.world.gen.foliage.BlobFoliagePlacer
 import net.minecraft.world.gen.stateprovider.BlockStateProvider
 import net.minecraft.world.gen.trunk.StraightTrunkPlacer
 
-object ModConfigureFeatures {
+object ModConfiguredFeatures {
 
     val DRIFTWOOD_KEY = registerKey("driftwood")
 

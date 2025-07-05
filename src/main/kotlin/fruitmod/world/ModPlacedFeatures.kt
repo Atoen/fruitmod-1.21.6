@@ -1,6 +1,7 @@
 package fruitmod.world
 
 import fruitmod.FruitMod
+import fruitmod.block.ModBlocks
 import net.minecraft.registry.Registerable
 import net.minecraft.registry.RegistryKey
 import net.minecraft.registry.RegistryKeys
@@ -10,12 +11,21 @@ import net.minecraft.world.gen.feature.ConfiguredFeature
 import net.minecraft.world.gen.feature.Feature
 import net.minecraft.world.gen.feature.FeatureConfig
 import net.minecraft.world.gen.feature.PlacedFeature
+import net.minecraft.world.gen.feature.PlacedFeatures
+import net.minecraft.world.gen.feature.VegetationPlacedFeatures
 import net.minecraft.world.gen.placementmodifier.PlacementModifier
 
 object ModPlacedFeatures {
 
+    val DRIFTWOOD_PLACED_KEY = registerKey("driftwood_placed")
+
     fun bootstrap(context: Registerable<PlacedFeature>) {
-        val configureFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE)
+        val configuredFeatures = context.getRegistryLookup(RegistryKeys.CONFIGURED_FEATURE)
+
+        register(context, DRIFTWOOD_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.DRIFTWOOD_KEY),
+            VegetationPlacedFeatures.treeModifiersWithWouldSurvive(
+                PlacedFeatures.createCountExtraModifier(2, 0.1f, 2), ModBlocks.DRIFTWOOD_SAPLING
+            ))
     }
 
     fun registerKey(name: String): RegistryKey<PlacedFeature> {

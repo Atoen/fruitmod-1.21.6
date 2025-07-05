@@ -6,7 +6,7 @@ import fruitmod.datagen.ModItemTagGenerator
 import fruitmod.datagen.ModModelGenerator
 import fruitmod.datagen.ModRecipeProvider
 import fruitmod.datagen.ModRegistryDataGenerator
-import fruitmod.world.ModConfigureFeatures
+import fruitmod.world.ModConfiguredFeatures
 import fruitmod.world.ModPlacedFeatures
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator
@@ -28,7 +28,7 @@ class ModDataGenerator : DataGeneratorEntrypoint {
     }
 
     override fun buildRegistry(registryBuilder: RegistryBuilder) {
-        registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfigureFeatures::bootstrap)
+        registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap)
         registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap)
     }
 }

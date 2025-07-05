@@ -3,7 +3,9 @@ package fruitmod
 import fruitmod.block.ModBlocks
 import fruitmod.item.ModItemGroups
 import fruitmod.item.ModItems
-import fruitmod.world.gen.ModWorldGenerationClass
+import fruitmod.particle.ModParticles
+import fruitmod.sound.ModSounds
+import fruitmod.world.gen.ModWorldGeneration
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry
@@ -17,8 +19,10 @@ object FruitMod : ModInitializer {
 		ModItemGroups.registerItemGroups()
 		ModItems.registerModItems()
 		ModBlocks.registerModBlocks()
+		ModSounds.registerSounds()
+		ModParticles.registerParticles()
 
-		ModWorldGenerationClass.generateModWorldGen()
+		ModWorldGeneration.generateModWorldGen()
 
 		StrippableBlockRegistry.register(ModBlocks.DRIFTWOOD_LOG, ModBlocks.STRIPPED_DRIFTWOOD_LOG)
 		StrippableBlockRegistry.register(ModBlocks.DRIFTWOOD_WOOD, ModBlocks.STRIPPED_DRIFTWOOD_WOOD)

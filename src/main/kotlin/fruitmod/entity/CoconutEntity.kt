@@ -1,6 +1,8 @@
 package fruitmod.entity
 
 import fruitmod.item.ModItems
+import fruitmod.particle.ModParticles
+import fruitmod.sound.ModSounds
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity
@@ -8,6 +10,7 @@ import net.minecraft.item.ItemStack
 import net.minecraft.particle.ItemStackParticleEffect
 import net.minecraft.particle.ParticleTypes
 import net.minecraft.server.world.ServerWorld
+import net.minecraft.sound.SoundCategory
 import net.minecraft.util.hit.EntityHitResult
 import net.minecraft.util.hit.HitResult
 import net.minecraft.world.World
@@ -55,7 +58,22 @@ class CoconutEntity : ThrownItemEntity {
 
         val world = entityHitResult.entity.world
         if (world is ServerWorld) {
-            entityHitResult.entity.damage(world, damageSources.thrown(this, this.getOwner()), 5f)
+            val entity = entityHitResult.entity
+            entity.damage(world, damageSources.thrown(this, this.getOwner()), 5f)
+
+            world.playSound(this, blockPos, ModSounds.BONK, SoundCategory.BLOCKS)
+
+            val x = entity.x
+            val y = entity.y + entity.height + 0.5
+            val z = entity.z
+
+            world.spawnParticles(
+                ModParticles.BONK_PARTICLE,
+                x, y, z,
+                1, // count
+                0.0, 0.0, 0.0, // spread
+                0.0 // speed
+            )
         }
     }
 

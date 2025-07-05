@@ -1,0 +1,8 @@
+{
+    "bonk": {
+        "subtitle": "sounds.fruitmod.bonk",
+        "sounds": [
+            "fruitmod:bonk"
+        ]
+    }
+}

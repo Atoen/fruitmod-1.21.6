@@ -41,5 +41,7 @@
   "item.fruitmod.driftwood_leaves": "Driftwood Leaves",
   "item.fruitmod.driftwood_sapling": "Driftwood Sapling",
 
-  "itemgroup.fruitmod.mod_items": "FruitMod"
+  "itemgroup.fruitmod.mod_items": "FruitMod",
+
+  "sounds.fruitmod.bonk": "Bonk!"
 }
