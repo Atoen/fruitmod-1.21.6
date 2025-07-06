@@ -47,6 +47,9 @@ object ModItems {
     val RASPBERRY = registerItem("raspberry", Item.Settings().food(ModFoodComponents.LOW_NUTRITION_FRUIT, ModConsumableComponents.FAST_FRUIT))
     val STRAWBERRY = registerItem("strawberry", Item.Settings().food(ModFoodComponents.LOW_NUTRITION_FRUIT, ModConsumableComponents.FAST_FRUIT))
 
+    val JAR = registerItem("jar")
+    val EMPTY_JAR = registerItem("empty_jar")
+
     private fun registerItem(
         name: String,
         settings: Item.Settings = Item.Settings(),
@@ -66,7 +69,8 @@ object ModItems {
                 BANANA, BLUEBERRY, CHERRIES, COCONUT, OPEN_COCONUT,
                 GRAPES, HONEY_BERRIES, KIWI, LEMON, LEMON_SLICE,
                 LIME, LIME_SLICE, MANGO, ORANGE, ORANGE_SLICE,
-                PAPAYA, PEACH, PEAR, PINEAPPLE, RASPBERRY, STRAWBERRY
+                PAPAYA, PEACH, PEAR, PINEAPPLE, RASPBERRY, STRAWBERRY,
+                JAR, EMPTY_JAR
             )
         }
     }

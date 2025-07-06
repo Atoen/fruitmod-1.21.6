@@ -89,7 +89,7 @@ object ModBlocks {
         FruitMod.logger.info("Registering Mod Blocks for ${FruitMod.MOD_ID}")
 
         ItemGroupEvents.modifyEntriesEvent(ModItemGroups.FRUITMOD_ITEM_GROUP_KEY).register {
-            it.apply {
+            it.run {
                 add { COMPACTED_DIRT.asItem() }
                 add { DRIFTWOOD_SAPLING.asItem() }
                 add { DRIFTWOOD_LEAVES.asItem() }

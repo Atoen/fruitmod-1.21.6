@@ -43,5 +43,8 @@
 
   "itemgroup.fruitmod.mod_items": "FruitMod",
 
-  "sounds.fruitmod.bonk": "Bonk!"
+  "sounds.fruitmod.bonk": "Bonk!",
+
+  "item.fruitmod.jar": "Jar",
+  "item.fruitmod.empty_jar": "Empty Jar"
 }

@@ -62,7 +62,9 @@ class ModModelGenerator(output: FabricDataOutput) : FabricModelProvider(output) 
             ModItems.PEAR,
             ModItems.PINEAPPLE,
             ModItems.RASPBERRY,
-            ModItems.STRAWBERRY
+            ModItems.STRAWBERRY,
+            ModItems.JAR,
+            ModItems.EMPTY_JAR
         )
     }
 }

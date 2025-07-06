@@ -17,7 +17,7 @@ class ModDataGenerator : DataGeneratorEntrypoint {
     override fun onInitializeDataGenerator(generator: FabricDataGenerator) {
         val pack = generator.createPack()
 
-        pack.apply {
+        pack.run {
             addProvider(::ModItemTagGenerator)
             addProvider(::ModBlockTagGenerator)
             addProvider(::ModBlockLootTableProvider)

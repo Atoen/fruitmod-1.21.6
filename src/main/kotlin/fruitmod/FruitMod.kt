@@ -3,6 +3,7 @@ package fruitmod
 import fruitmod.block.ModBlocks
 import fruitmod.item.ModItemGroups
 import fruitmod.item.ModItems
+import fruitmod.item.jam.ModJamIngredients
 import fruitmod.particle.ModParticles
 import fruitmod.sound.ModSounds
 import fruitmod.world.gen.ModWorldGeneration
@@ -24,10 +25,15 @@ object FruitMod : ModInitializer {
 
 		ModWorldGeneration.generateModWorldGen()
 
+		ModRegistries.addModRegistries()
+		ModJamIngredients.registerJamIngredients()
+
+		ModComponents.registerComponentTypes()
+
 		StrippableBlockRegistry.register(ModBlocks.DRIFTWOOD_LOG, ModBlocks.STRIPPED_DRIFTWOOD_LOG)
 		StrippableBlockRegistry.register(ModBlocks.DRIFTWOOD_WOOD, ModBlocks.STRIPPED_DRIFTWOOD_WOOD)
 
-		FlammableBlockRegistry.getDefaultInstance().apply {
+		FlammableBlockRegistry.getDefaultInstance().run {
 			add(ModBlocks.DRIFTWOOD_LOG, 5, 5)
 			add(ModBlocks.DRIFTWOOD_WOOD, 5, 5)
 			add(ModBlocks.STRIPPED_DRIFTWOOD_LOG, 5, 5)
