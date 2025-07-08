@@ -20,6 +20,7 @@ af8d4738c185a1cc91ce0d1a1d8aead6ef7ed626 assets/fruitmod/items/driftwood_sapling
 0b23e153e3da0c3e884c47223e185774d5054195 assets/fruitmod/items/empty_jar.json
 5fe5cd2effb7006c04478d1dd558bfb246468ef7 assets/fruitmod/items/grapes.json
 a3b941194123088cbf7ee49ac02c2a73c817deb0 assets/fruitmod/items/honey_berries.json
+c02c31b440c887c6f1fba1321af558d6292840fc assets/fruitmod/items/jam.json
 578c9f039d8c827e0587b35286935d68c7d4a7ec assets/fruitmod/items/jar.json
 0fc3a819360a07956de13fb358aa499de5cb84b2 assets/fruitmod/items/kiwi.json
 109cdc007a8045bc2c02332fe2e1ff1bd548ce3e assets/fruitmod/items/lemon.json
@@ -57,6 +58,7 @@ d3a2f194277ab7fe595855e487707cf253a85598 assets/fruitmod/models/block/stripped_d
 3e932ef3bd48111aa9408470602f3db731963fd8 assets/fruitmod/models/item/empty_jar.json
 43ce795c3f0871baeb3f7eb48c219551c7962b88 assets/fruitmod/models/item/grapes.json
 d6d4205e4a8e2897ed0c99e3f943950b39c1deaa assets/fruitmod/models/item/honey_berries.json
+3531c439be3aac2d874e28766ac6bd5460928a56 assets/fruitmod/models/item/jam.json
 3234916b5c8372e243869df083b70b8b9fd2a95f assets/fruitmod/models/item/jar.json
 78ee18f0e4b9ae91d817a4dbbf76e435b8fa41a6 assets/fruitmod/models/item/kiwi.json
 ed246eafe79dc23ea45f7ec1f9d1fce715a43ab1 assets/fruitmod/models/item/lemon.json

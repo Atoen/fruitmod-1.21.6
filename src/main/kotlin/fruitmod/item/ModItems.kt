@@ -1,13 +1,19 @@
 package fruitmod.item
 
 import fruitmod.FruitMod
+import fruitmod.ModRegistries
 import fruitmod.block.ModBlocks
+import fruitmod.component.JamIngredientComponent
+import fruitmod.component.ModDataComponents
 import fruitmod.item.custom.CoconutItem
+import fruitmod.item.custom.JamItem
 import fruitmod.item.custom.OpenCoconutItem
 import fruitmod.item.food.ModConsumableComponents
 import fruitmod.item.food.ModFoodComponents
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
+import net.minecraft.component.DataComponentTypes
+import net.minecraft.component.type.ConsumableComponents
 import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
 import net.minecraft.registry.Registries
@@ -50,6 +56,26 @@ object ModItems {
     val JAR = registerItem("jar")
     val EMPTY_JAR = registerItem("empty_jar")
 
+    val JAM = registerItem(
+        "jam",
+        Item.Settings()
+            .maxCount(1)
+            .component(ModDataComponents.JAM_INGREDIENTS, JamIngredientComponent.DEFAULT)
+            .component(DataComponentTypes.CONSUMABLE, ConsumableComponents.DRINK)
+            .useRemainder(EMPTY_JAR),
+        ::JamItem
+    )
+
+    private fun generateJams() {
+        val jamStacks = ModRegistries.JAM_INGREDIENT_REGISTRY.streamEntries()
+            .map { JamIngredientComponent.createStack(JAM, it) }
+            .toList()
+
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroups.FRUITMOD_ITEM_GROUP_KEY).register { entries ->
+            jamStacks.forEach { entries.add(it) }
+        }
+    }
+
     private fun registerItem(
         name: String,
         settings: Item.Settings = Item.Settings(),
@@ -73,6 +99,8 @@ object ModItems {
                 JAR, EMPTY_JAR
             )
         }
+
+        generateJams()
     }
 }
 

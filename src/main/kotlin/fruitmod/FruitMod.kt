@@ -1,8 +1,10 @@
 package fruitmod
 
 import fruitmod.block.ModBlocks
+import fruitmod.component.ModDataComponents
 import fruitmod.item.ModItemGroups
 import fruitmod.item.ModItems
+import fruitmod.item.jam.Jams
 import fruitmod.item.jam.ModJamIngredients
 import fruitmod.particle.ModParticles
 import fruitmod.sound.ModSounds
@@ -18,17 +20,18 @@ object FruitMod : ModInitializer {
 
 	override fun onInitialize() {
 		ModItemGroups.registerItemGroups()
-		ModItems.registerModItems()
-		ModBlocks.registerModBlocks()
 		ModSounds.registerSounds()
 		ModParticles.registerParticles()
 
 		ModWorldGeneration.generateModWorldGen()
 
 		ModRegistries.addModRegistries()
+		ModDataComponents.registerDataComponentTypes()
 		ModJamIngredients.registerJamIngredients()
+		Jams.registerJams()
 
-		ModComponents.registerComponentTypes()
+		ModItems.registerModItems()
+		ModBlocks.registerModBlocks()
 
 		StrippableBlockRegistry.register(ModBlocks.DRIFTWOOD_LOG, ModBlocks.STRIPPED_DRIFTWOOD_LOG)
 		StrippableBlockRegistry.register(ModBlocks.DRIFTWOOD_WOOD, ModBlocks.STRIPPED_DRIFTWOOD_WOOD)
