@@ -8,7 +8,7 @@ import net.minecraft.registry.Registry
 import net.minecraft.registry.entry.RegistryEntry
 import net.minecraft.util.Identifier
 
-class Jam(val name: String, vararg ingredient: JamIngredient) {
+class Jam(val name: String, val ingredients: List<RegistryEntry<JamIngredient>>) {
     companion object {
         val CODEC = ModRegistries.JAM_REGISTRY.entryCodec
         val PACKET_CODEC = PacketCodecs.registryEntry(ModRegistries.JAM_REGISTRY_KEY)
@@ -17,7 +17,7 @@ class Jam(val name: String, vararg ingredient: JamIngredient) {
 
 object Jams {
 
-    val STRAWBERRY_JAM = registerJam("strawberry", Jam("strawberry", ModJamIngredients.STRAWBERRY.value()))
+    val STRAWBERRY_JAM = registerJam("strawberry", Jam("strawberry", listOf(ModJamIngredients.STRAWBERRY)))
 
     fun registerJams() {
         FruitMod.logger.info("Registering Jams for ${FruitMod.MOD_ID}")

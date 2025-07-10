@@ -3,6 +3,7 @@ package fruitmod
 import fruitmod.block.ModBlocks
 import fruitmod.particle.BonkParticle
 import fruitmod.particle.ModParticles
+import fruitmod.tint.JamIngredientTintSource
 import fruitmod.tint.JamTintSource
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry
@@ -17,6 +18,11 @@ object FruitModClient : ClientModInitializer {
 		BlockRenderLayerMap.putBlock(ModBlocks.DRIFTWOOD_SAPLING, BlockRenderLayer.CUTOUT)
 
 		ParticleFactoryRegistry.getInstance().register(ModParticles.BONK_PARTICLE) { BonkParticle.Factory(it) }
+
+		TintSourceTypes.ID_MAPPER.put(
+			Identifier.of(FruitMod.MOD_ID, "jam_ingredient"),
+			JamIngredientTintSource.CODEC
+		)
 
 		TintSourceTypes.ID_MAPPER.put(
 			Identifier.of(FruitMod.MOD_ID, "jam"),

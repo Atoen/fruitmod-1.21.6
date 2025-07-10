@@ -12,6 +12,10 @@ object ModDataComponents {
         it.codec(JamIngredientComponent.CODEC).packetCodec(JamIngredientComponent.PACKET_CODEC).cache()
     }
 
+    val JAMS = register("jams") {
+        it.codec(JamComponent.CODEC).packetCodec(JamComponent.PACKET_CODEC).cache()
+    }
+
     private fun <T> register(
         name: String,
         builder: (ComponentType.Builder<T>) -> ComponentType.Builder<T>
