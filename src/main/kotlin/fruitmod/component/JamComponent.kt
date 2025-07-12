@@ -5,8 +5,6 @@ import com.mojang.serialization.codecs.RecordCodecBuilder
 import fruitmod.item.jam.Jam
 import fruitmod.item.jam.JamIngredient
 import net.minecraft.component.ComponentsAccess
-import net.minecraft.component.type.Consumable
-import net.minecraft.component.type.ConsumableComponent
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.entity.player.PlayerEntity
@@ -20,6 +18,8 @@ import net.minecraft.network.codec.PacketCodecs
 import net.minecraft.registry.entry.RegistryEntry
 import net.minecraft.server.world.ServerWorld
 import net.minecraft.text.Text
+import net.minecraft.util.Formatting
+import net.minecraft.util.math.ColorHelper
 import net.minecraft.world.World
 import java.util.*
 import java.util.function.Consumer
@@ -29,15 +29,17 @@ data class JamComponent(
     val ingredients: List<RegistryEntry<JamIngredient>>,
     val customColor: Optional<Int>,
     val additionalEffects: List<StatusEffectInstance>,
-    val customName: Optional<String>
-) : Consumable, TooltipAppender {
+    val customName: Optional<String>,
+    val portions: Int
+) :  TooltipAppender {
 
     constructor(jam: RegistryEntry<Jam>) : this(
         Optional.of(jam),
         jam.value().ingredients,
         Optional.empty(),
         listOf(),
-        Optional.empty()
+        Optional.empty(),
+        DEFAULT_PORTIONS
     )
 
     val color: Int
@@ -46,7 +48,7 @@ data class JamComponent(
     fun getColor(defaultColor: Int): Int {
         return if (customColor.isPresent) {
             customColor.get()
-        } else defaultColor
+        } else mixColors().orElse(defaultColor)
     }
 
     val effects: Iterable<StatusEffectInstance>
@@ -64,11 +66,36 @@ data class JamComponent(
             return Text.literal(name)
         }
 
-    override fun onConsume(
+    fun mixColors(): OptionalInt {
+        if (ingredients.isEmpty()) {
+            return OptionalInt.empty()
+        }
+
+        var red = 0
+        var green = 0
+        var blue = 0
+
+        ingredients.forEach {
+            val ingredientColor = it.value().color
+            red += ColorHelper.getRed(ingredientColor)
+            green += ColorHelper.getGreen(ingredientColor)
+            blue += ColorHelper.getBlue(ingredientColor)
+        }
+
+        val ingredientsCount = ingredients.size
+        return OptionalInt.of(
+            ColorHelper.getArgb(
+                red / ingredientsCount,
+                green / ingredientsCount,
+                blue / ingredientsCount
+            )
+        )
+    }
+
+    fun onConsume(
         world: World,
         user: LivingEntity,
-        stack: ItemStack,
-        consumable: ConsumableComponent
+        stack: ItemStack
     ) {
         if (world !is ServerWorld) return
         val playerEntity = user as? PlayerEntity
@@ -91,16 +118,19 @@ data class JamComponent(
     }
 
     override fun appendTooltip(
-        context: Item.TooltipContext?,
-        textConsumer: Consumer<Text?>?,
-        type: TooltipType?,
-        components: ComponentsAccess?
+        context: Item.TooltipContext,
+        textConsumer: Consumer<Text>,
+        type: TooltipType,
+        components: ComponentsAccess
     ) {
-
+        textConsumer.accept(Text.translatable("potion.whenDrank").formatted(Formatting.DARK_PURPLE))
+        textConsumer.accept(Text.translatable("potion.whenDrank").formatted(Formatting.YELLOW))
+        textConsumer.accept(Text.translatable("potion.whenDrank").formatted(Formatting.UNDERLINE))
     }
 
     companion object {
         const val DEFAULT_COLOR = 0xFC5A8D
+        const val DEFAULT_PORTIONS = 4
 
         private val BASE_CODEC: Codec<JamComponent>
         val CODEC: Codec<JamComponent>
@@ -111,7 +141,8 @@ data class JamComponent(
             listOf(),
             Optional.empty(),
             listOf(),
-            Optional.empty()
+            Optional.empty(),
+            DEFAULT_PORTIONS
         )
 
         fun createStack(item: Item, jam: RegistryEntry<Jam>): ItemStack {
@@ -127,7 +158,8 @@ data class JamComponent(
                     JamIngredient.CODEC.listOf().optionalFieldOf("ingredients", listOf()).forGetter { it.ingredients },
                     Codec.INT.optionalFieldOf("custom_color").forGetter { it.customColor },
                     StatusEffectInstance.CODEC.listOf().optionalFieldOf("additional_effects", listOf()).forGetter { it.additionalEffects },
-                    Codec.STRING.optionalFieldOf("custom_name").forGetter { it.customName }
+                    Codec.STRING.optionalFieldOf("custom_name").forGetter { it.customName },
+                    Codec.INT.fieldOf("portions").forGetter { it.portions }
                 ).apply(builder, ::JamComponent)
             }
 
@@ -137,13 +169,15 @@ data class JamComponent(
                 Jam.PACKET_CODEC.collect(PacketCodecs::optional),
                 JamComponent::jam,
                 JamIngredient.PACKET_CODEC.collect(PacketCodecs.toList()),
-                { it.ingredients },
+                JamComponent::ingredients,
                 PacketCodecs.INTEGER.collect(PacketCodecs::optional),
                 JamComponent::customColor,
                 StatusEffectInstance.PACKET_CODEC.collect(PacketCodecs.toList()),
                 JamComponent::additionalEffects,
                 PacketCodecs.STRING.collect(PacketCodecs::optional),
                 JamComponent::customName,
+                PacketCodecs.VAR_INT,
+                JamComponent::portions,
                 ::JamComponent
             )
         }

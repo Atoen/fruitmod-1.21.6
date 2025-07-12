@@ -3,7 +3,8 @@ package fruitmod.item
 import fruitmod.FruitMod
 import fruitmod.ModRegistries
 import fruitmod.block.ModBlocks
-import fruitmod.component.JamIngredientComponent
+import fruitmod.component.JamComponent
+import fruitmod.component.JamConsumableComponent
 import fruitmod.component.ModDataComponents
 import fruitmod.item.custom.CoconutItem
 import fruitmod.item.custom.JamItem
@@ -13,7 +14,7 @@ import fruitmod.item.food.ModFoodComponents
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
 import net.minecraft.component.DataComponentTypes
-import net.minecraft.component.type.ConsumableComponents
+import net.minecraft.component.type.FoodComponents
 import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
 import net.minecraft.registry.Registries
@@ -60,20 +61,21 @@ object ModItems {
         "jam",
         Item.Settings()
             .maxCount(1)
-            .component(ModDataComponents.JAM_INGREDIENTS, JamIngredientComponent.DEFAULT)
-            .component(DataComponentTypes.CONSUMABLE, ConsumableComponents.DRINK)
-            .useRemainder(EMPTY_JAR),
+            .component(ModDataComponents.JAMS, JamComponent.DEFAULT)
+            .component(ModDataComponents.JAM_CONSUMABLE, JamConsumableComponent.DEFAULT)
+            .component(DataComponentTypes.FOOD, FoodComponents.HONEY_BOTTLE),
         ::JamItem
     )
 
     private fun generateJams() {
-        val jamStacks = ModRegistries.JAM_INGREDIENT_REGISTRY.streamEntries()
-            .map { JamIngredientComponent.createStack(JAM, it) }
+        val jamStacks = ModRegistries.JAM_REGISTRY.streamEntries()
+            .map { JamComponent.createStack(JAM, it) }
             .toList()
 
         ItemGroupEvents.modifyEntriesEvent(ModItemGroups.FRUITMOD_ITEM_GROUP_KEY).register { entries ->
-            jamStacks.forEach { entries.add(it) }
+            entries.addAll(jamStacks)
         }
+
     }
 
     private fun registerItem(

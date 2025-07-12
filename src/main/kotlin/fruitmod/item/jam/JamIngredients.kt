@@ -8,7 +8,7 @@ import net.minecraft.registry.Registry
 import net.minecraft.registry.entry.RegistryEntry
 import net.minecraft.util.Identifier
 
-object ModJamIngredients {
+object JamIngredients {
     val BLUEBERRY = registerIngredient("blueberry") {
         JamIngredient("blueberry", listOf(
             StatusEffectInstance(StatusEffects.NIGHT_VISION, 2400)
@@ -64,11 +64,9 @@ object ModJamIngredients {
     }
 
     val ORANGE = registerIngredient("orange") {
-        JamIngredient("orange", listOf(), 0xFFA500)
-    }
-
-    val ORANGE_SLICE = registerIngredient("orange_slice") {
-        JamIngredient("orange_slice", listOf(), 0xFFB347)
+        JamIngredient("orange", listOf(
+            StatusEffectInstance(StatusEffects.SPEED, 3600)
+        ), 0xFFA500)
     }
 
     val PAPAYA = registerIngredient("papaya") {
@@ -90,7 +88,9 @@ object ModJamIngredients {
     }
 
     val RASPBERRY = registerIngredient("raspberry") {
-        JamIngredient("raspberry", listOf(), 0xE30B5C)
+        JamIngredient("raspberry", listOf(
+            StatusEffectInstance(StatusEffects.STRENGTH, 3600)
+        ), 0xE30B5C)
     }
 
     val STRAWBERRY = registerIngredient("strawberry") {
@@ -105,7 +105,7 @@ object ModJamIngredients {
 
     private fun registerIngredient(
         name: String,
-        factory: ((String) -> JamIngredient)
+        factory: (String) -> JamIngredient
     ): RegistryEntry<JamIngredient> {
         val ingredient = factory(name)
 

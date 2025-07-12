@@ -3,19 +3,13 @@ package fruitmod.datagen
 import fruitmod.block.ModBlocks
 import fruitmod.block.custom.DriftwoodLeavesBlock
 import fruitmod.item.ModItems
-import fruitmod.tint.JamIngredientTintSource
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
-import net.minecraft.client.data.BlockStateModelGenerator
-import net.minecraft.client.data.ItemModelGenerator
-import net.minecraft.client.data.Models
-import net.minecraft.client.data.TextureMap
-import net.minecraft.client.data.TexturedModel
-import net.minecraft.client.data.VariantsBlockModelDefinitionCreator
+import net.minecraft.client.data.*
 import net.minecraft.client.render.model.json.ModelVariant
 import net.minecraft.client.render.model.json.WeightedVariant
-import net.minecraft.util.collection.Pool
 import net.minecraft.item.Item
+import net.minecraft.util.collection.Pool
 
 class ModModelGenerator(output: FabricDataOutput) : FabricModelProvider(output) {
     override fun generateBlockStateModels(generator: BlockStateModelGenerator) {
@@ -67,8 +61,6 @@ class ModModelGenerator(output: FabricDataOutput) : FabricModelProvider(output) 
             ModItems.JAR,
             ModItems.EMPTY_JAR
         )
-
-        generator.registerWithTintedLayer(ModItems.JAM, "_overlay4", JamIngredientTintSource())
     }
 }
 

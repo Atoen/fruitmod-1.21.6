@@ -5,7 +5,6 @@ import fruitmod.component.ModDataComponents
 import fruitmod.item.ModItemGroups
 import fruitmod.item.ModItems
 import fruitmod.item.jam.Jams
-import fruitmod.item.jam.ModJamIngredients
 import fruitmod.particle.ModParticles
 import fruitmod.sound.ModSounds
 import fruitmod.world.gen.ModWorldGeneration
@@ -27,7 +26,6 @@ object FruitMod : ModInitializer {
 
 		ModRegistries.addModRegistries()
 		ModDataComponents.registerDataComponentTypes()
-		ModJamIngredients.registerJamIngredients()
 		Jams.registerJams()
 
 		ModItems.registerModItems()

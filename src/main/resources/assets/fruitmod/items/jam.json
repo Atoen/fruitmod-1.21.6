@@ -1,0 +1,73 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fruitmod:item/jam1",
+          "tints": [
+            {
+              "type": "minecraft:constant",
+              "value": -1
+            },
+            {
+              "type": "fruitmod:jam",
+              "default": 16538253
+            }
+          ]
+        },
+        "when": "one"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fruitmod:item/jam2",
+          "tints": [
+            {
+              "type": "minecraft:constant",
+              "value": -1
+            },
+            {
+              "type": "fruitmod:jam",
+              "default": 16538253
+            }
+          ]
+        },
+        "when": "two"
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fruitmod:item/jam3",
+          "tints": [
+            {
+              "type": "minecraft:constant",
+              "value": -1
+            },
+            {
+              "type": "fruitmod:jam",
+              "default": 16538253
+            }
+          ]
+        },
+        "when": "three"
+      }
+    ],
+    "fallback": {
+      "type": "minecraft:model",
+      "model": "fruitmod:item/jam4",
+      "tints": [
+        {
+          "type": "minecraft:constant",
+          "value": -1
+        },
+        {
+          "type": "fruitmod:jam",
+          "default": 16538253
+        }
+      ]
+    },
+    "property": "fruitmod:jam_portions"
+  }
+}

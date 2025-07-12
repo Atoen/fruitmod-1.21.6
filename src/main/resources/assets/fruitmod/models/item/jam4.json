@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "fruitmod:item/jam",
+    "layer1": "fruitmod:item/jam_overlay4"
+  }
+}
