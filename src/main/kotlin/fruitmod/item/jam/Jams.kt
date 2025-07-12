@@ -8,23 +8,27 @@ import net.minecraft.util.Identifier
 
 object Jams {
 
-    val STRAWBERRY_JAM = registerJam("strawberry") {
+    val STRAWBERRY_JAM = registerJam {
         Jam("strawberry", listOf(JamIngredients.STRAWBERRY))
     }
 
-    val KIWI_JAM = registerJam("kiwi") {
+    val KIWI_JAM = registerJam {
         Jam("kiwi", listOf(JamIngredients.KIWI))
     }
 
-    val ORANGE_JAM = registerJam("orange") {
+    val ORANGE_JAM = registerJam {
         Jam("orange", listOf(JamIngredients.ORANGE))
     }
 
-    val RASPBERRY_JAM = registerJam("raspberry") {
+    val RASPBERRY_JAM = registerJam {
         Jam("raspberry", listOf(JamIngredients.RASPBERRY))
     }
 
-    val TURBO_JAM = registerJam("turbo") {
+    val STRAWBERRY_KIWI_JAM = registerJam {
+        Jam("strawberry_kiwi", listOf(JamIngredients.RASPBERRY, JamIngredients.KIWI))
+    }
+
+    val TURBO_JAM = registerJam {
         Jam("turbo", listOf(
             JamIngredients.STRAWBERRY,
             JamIngredients.KIWI,
@@ -42,13 +46,12 @@ object Jams {
     }
 
     private fun registerJam(
-        name: String,
         factory: () -> Jam,
     ): RegistryEntry<Jam> {
         val jam = factory()
         return Registry.registerReference(
             ModRegistries.JAM_REGISTRY,
-            Identifier.of(FruitMod.MOD_ID, name),
+            Identifier.of(FruitMod.MOD_ID, jam.name),
             jam
         )
     }

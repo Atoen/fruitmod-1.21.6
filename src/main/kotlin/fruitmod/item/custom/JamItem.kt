@@ -26,19 +26,6 @@ class JamItem(settings: Settings): Item(settings) {
         }
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun appendTooltip(
-        stack: ItemStack,
-        context: TooltipContext,
-        displayComponent: TooltipDisplayComponent,
-        textConsumer: Consumer<Text>,
-        type: TooltipType
-    ) {
-        stack.get(ModDataComponents.JAMS)?.run {
-            appendTooltip(context, textConsumer, type, stack.components)
-        }
-    }
-
     override fun usageTick(world: World, user: LivingEntity, stack: ItemStack, remainingUseTicks: Int) {
         val jamConsumableComponent = stack.get(ModDataComponents.JAM_CONSUMABLE)
         jamConsumableComponent?.let {
@@ -80,6 +67,19 @@ class JamItem(settings: Settings): Item(settings) {
     override fun getName(stack: ItemStack): Text {
         val jam = stack.get(ModDataComponents.JAMS)
         return jam?.name ?: super.getName(stack)
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun appendTooltip(
+        stack: ItemStack,
+        context: TooltipContext,
+        displayComponent: TooltipDisplayComponent,
+        textConsumer: Consumer<Text>,
+        type: TooltipType
+    ) {
+        stack.get(ModDataComponents.JAMS)?.run {
+            appendTooltip(context, textConsumer, type, stack.components)
+        }
     }
 
     companion object {

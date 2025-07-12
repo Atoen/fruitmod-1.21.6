@@ -46,5 +46,21 @@
   "sounds.fruitmod.bonk": "Bonk!",
 
   "item.fruitmod.jar": "Jar",
-  "item.fruitmod.empty_jar": "Empty Jar"
+  "item.fruitmod.empty_jar": "Empty Jar",
+
+  "jam.fruitmod.turbo": "Turbo Jam",
+  "jam.fruitmod.one_fruit_jam": "%s Jam",
+  "jam.fruitmod.two_fruits_jam": "%s & %s Jam",
+  "jam.fruitmod.mixed_fruit": "Mixed Fruit Jam",
+  "jam.fruitmod.no_ingredients": "Uncraftable Jam",
+
+  "jam.fruitmod.portions_left": "Portions: %d",
+
+  "jam.fruitmod.effects": "Effects:",
+  "jam.fruitmod.ingredients": "Ingredients:",
+
+  "jam_ingredient.fruitmod.strawberry": "Strawberry",
+  "jam_ingredient.fruitmod.kiwi": "Kiwi",
+  "jam_ingredient.fruitmod.orange": "Orange",
+  "jam_ingredient.fruitmod.raspberry": "Raspberry"
 }

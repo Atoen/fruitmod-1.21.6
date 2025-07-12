@@ -54,7 +54,7 @@ data class JamConsumableComponent(val consumeSeconds: Float) {
         playSound(user)
 
         stack.run {
-            get(ModDataComponents.JAMS)?.onConsume(world, user, stack)
+            get(ModDataComponents.JAMS)?.onConsume(world, user)
             get(DataComponentTypes.FOOD)?.let {
                 onFinishedConsumption(world, user, it)
             }
