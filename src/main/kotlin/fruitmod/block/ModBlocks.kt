@@ -3,14 +3,12 @@ package fruitmod.block
 import fruitmod.FruitMod
 import fruitmod.block.custom.DriftwoodLeavesBlock
 import fruitmod.block.custom.HoneyBerryBushBlock
+import fruitmod.block.custom.JamBlock
+import fruitmod.block.custom.SolidJamBlock
 import fruitmod.item.ModItemGroups
 import fruitmod.world.gen.ModSaplingGenerators
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
-import net.minecraft.block.AbstractBlock
-import net.minecraft.block.Block
-import net.minecraft.block.Blocks
-import net.minecraft.block.PillarBlock
-import net.minecraft.block.SaplingBlock
+import net.minecraft.block.*
 import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
 import net.minecraft.registry.Registries
@@ -44,7 +42,7 @@ object ModBlocks {
     )
 
     val STRIPPED_DRIFTWOOD_LOG = registerBlock("stripped_driftwood_log",
-        AbstractBlock.Settings.copy(Blocks.STRIPPED_OAK_LOG),
+        copySettings(Blocks.STRIPPED_OAK_LOG),
         ::PillarBlock
     )
 
@@ -66,20 +64,42 @@ object ModBlocks {
         { SaplingBlock(ModSaplingGenerators.DRIFTWOOD, it) }
     )
 
+    val JAM_BLOCK = registerBlock("jam_block",
+        createSettings()
+            .sounds(BlockSoundGroup.HONEY)
+            .dynamicBounds()
+            .nonOpaque()
+            .solidBlock(Blocks::never),
+::JamBlock,
+        alsoRegisterItem = false
+    )
+
+    val SOLID_JAM_BLOCK = registerBlock("solid_jam_block",
+        createSettings()
+            .sounds(BlockSoundGroup.HONEY),
+        ::SolidJamBlock,
+        alsoRegisterItem = false
+    )
+
     private fun registerBlock(
         name: String,
         settings: AbstractBlock.Settings,
-        factory: ((AbstractBlock.Settings) -> Block) = { Block(it) },
-        alsoRegisterItem: Boolean = true
+        factory: (AbstractBlock.Settings) -> Block = { Block(it) },
+        alsoRegisterItem: Boolean = true,
+        itemSettings: Item.Settings? = null,
+        itemFactory: ((Block, Item.Settings) -> BlockItem)? = null
     ): Block {
         val blockKey = RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(FruitMod.MOD_ID, name))
         val block = factory(settings.registryKey(blockKey))
 
         if (alsoRegisterItem) {
             val itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FruitMod.MOD_ID, name))
-            val blocKItem = BlockItem(block, Item.Settings().registryKey(itemKey))
+            val itemSettings = (itemSettings ?: Item.Settings()).registryKey(itemKey)
 
-            Registry.register(Registries.ITEM, itemKey, blocKItem)
+            val blockItem = itemFactory?.invoke(block, itemSettings)
+                ?: BlockItem(block, itemSettings)
+
+            Registry.register(Registries.ITEM, itemKey, blockItem)
         }
 
         return Registry.register(Registries.BLOCK, blockKey, block)

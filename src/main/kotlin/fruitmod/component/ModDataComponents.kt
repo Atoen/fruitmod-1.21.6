@@ -16,6 +16,10 @@ object ModDataComponents {
         it.codec(JamConsumableComponent.CODEC).packetCodec(JamConsumableComponent.PACKET_CODEC).cache()
     }
 
+    val JAM_BLOCK_COLOR = register("jam_block_color") {
+        it.codec(JamBlockColorComponent.CODEC).packetCodec(JamBlockColorComponent.PACKET_CODEC).cache()
+    }
+
     private fun <T> register(
         name: String,
         builder: (ComponentType.Builder<T>) -> ComponentType.Builder<T>

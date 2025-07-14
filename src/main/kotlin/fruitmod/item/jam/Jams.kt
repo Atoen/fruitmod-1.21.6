@@ -30,11 +30,13 @@ object Jams {
 
     val TURBO_JAM = registerJam {
         Jam("turbo", listOf(
-            JamIngredients.STRAWBERRY,
-            JamIngredients.KIWI,
-            JamIngredients.ORANGE,
-            JamIngredients.RASPBERRY
-        ))
+                JamIngredients.STRAWBERRY,
+                JamIngredients.KIWI,
+                JamIngredients.ORANGE,
+                JamIngredients.RASPBERRY
+            ),
+            createNameFromIngredients = false
+        )
     }
 
     fun registerJams(alsoRegisterIngredients: Boolean = true) {

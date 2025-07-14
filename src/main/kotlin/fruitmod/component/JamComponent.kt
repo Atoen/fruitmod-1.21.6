@@ -67,6 +67,13 @@ data class JamComponent(
                 return Text.literal(customName.get())
             }
 
+            if (jam.isPresent) {
+                val jam = jam.get().value()
+                if (!jam.createNameFromIngredients) {
+                    return Text.translatable(jam.name)
+                }
+            }
+
             return createName()
         }
 

@@ -1,11 +1,15 @@
 {
-	"required": true,
-	"package": "fruitmod.mixin.client",
-	"compatibilityLevel": "JAVA_21",
-	"client": [
-		"ExampleClientMixin"
-	],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "fruitmod.mixin.client",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "CameraMixin",
+    "ExampleClientMixin",
+    "FogRendererAccessor",
+    "FogRendererMixin",
+    "PowderSnowFogModifierMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }

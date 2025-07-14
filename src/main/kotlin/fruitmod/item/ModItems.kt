@@ -3,12 +3,15 @@ package fruitmod.item
 import fruitmod.FruitMod
 import fruitmod.ModRegistries
 import fruitmod.block.ModBlocks
+import fruitmod.component.JamBlockColorComponent
 import fruitmod.component.JamComponent
 import fruitmod.component.JamConsumableComponent
 import fruitmod.component.ModDataComponents
 import fruitmod.item.custom.CoconutItem
+import fruitmod.item.custom.JamBlockItem
 import fruitmod.item.custom.JamItem
 import fruitmod.item.custom.OpenCoconutItem
+import fruitmod.item.custom.SolidJamBlockItem
 import fruitmod.item.food.ModConsumableComponents
 import fruitmod.item.food.ModFoodComponents
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries
@@ -67,6 +70,20 @@ object ModItems {
         ::JamItem
     )
 
+    val JAM_BLOCK_ITEM = registerItem(
+        "jam_block_item",
+        Item.Settings()
+            .component(ModDataComponents.JAM_BLOCK_COLOR, JamBlockColorComponent.DEFAULT),
+        factory = { JamBlockItem(ModBlocks.JAM_BLOCK, it) }
+    )
+
+    val SOLID_JAM_BLOCK_ITEM = registerItem(
+        "solid_jam_block_item",
+        Item.Settings()
+            .component(ModDataComponents.JAM_BLOCK_COLOR, JamBlockColorComponent.DEFAULT),
+        factory = { SolidJamBlockItem(ModBlocks.SOLID_JAM_BLOCK, it) }
+    )
+
     private fun generateJams() {
         val jamStacks = ModRegistries.JAM_REGISTRY.streamEntries()
             .map { JamComponent.createStack(JAM, it) }
@@ -75,7 +92,6 @@ object ModItems {
         ItemGroupEvents.modifyEntriesEvent(ModItemGroups.FRUITMOD_ITEM_GROUP_KEY).register { entries ->
             entries.addAll(jamStacks)
         }
-
     }
 
     private fun registerItem(

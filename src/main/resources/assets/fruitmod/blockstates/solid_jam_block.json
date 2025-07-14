@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "": [
+      { "model": "fruitmod:block/solid_jam_block", "y": 0 },
+      { "model": "fruitmod:block/solid_jam_block", "y": 90 },
+      { "model": "fruitmod:block/solid_jam_block", "y": 180 },
+      { "model": "fruitmod:block/solid_jam_block", "y": 270 }
+    ]
+  }
+}

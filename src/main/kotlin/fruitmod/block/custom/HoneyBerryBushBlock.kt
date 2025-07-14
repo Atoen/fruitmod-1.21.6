@@ -4,6 +4,7 @@ import fruitmod.item.ModItems
 import net.minecraft.block.BlockState
 import net.minecraft.block.SweetBerryBushBlock
 import net.minecraft.entity.Entity
+import net.minecraft.entity.ai.pathing.NavigationType
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack
 import net.minecraft.sound.SoundCategory
@@ -60,5 +61,9 @@ class HoneyBerryBushBlock(settings: Settings) : SweetBerryBushBlock(settings) {
         world.emitGameEvent(GameEvent.BLOCK_CHANGE, pos, GameEvent.Emitter.of(player, blockState))
 
         return ActionResult.SUCCESS
+    }
+
+    override fun canPathfindThrough(state: BlockState, type: NavigationType): Boolean {
+        return false
     }
 }

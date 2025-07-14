@@ -31,6 +31,8 @@ object FruitMod : ModInitializer {
 		ModItems.registerModItems()
 		ModBlocks.registerModBlocks()
 
+		ModItemGroups.addJamBlocksToGroup()
+
 		StrippableBlockRegistry.register(ModBlocks.DRIFTWOOD_LOG, ModBlocks.STRIPPED_DRIFTWOOD_LOG)
 		StrippableBlockRegistry.register(ModBlocks.DRIFTWOOD_WOOD, ModBlocks.STRIPPED_DRIFTWOOD_WOOD)
 
@@ -42,5 +44,5 @@ object FruitMod : ModInitializer {
 			add(ModBlocks.DRIFTWOOD_PLANKS, 5, 20)
 			add(ModBlocks.DRIFTWOOD_LEAVES, 30, 60)
 		}
-    }
+	}
 }

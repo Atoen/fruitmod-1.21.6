@@ -1,0 +1,12 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "fruitmod:block/jam_block",
+    "tints": [
+      {
+        "type": "fruitmod:jam_block_item",
+        "default": 16538253
+      }
+    ]
+  }
+}
