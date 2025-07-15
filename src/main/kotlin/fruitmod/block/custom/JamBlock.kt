@@ -6,11 +6,9 @@ import fruitmod.component.JamBlockColorComponent
 import fruitmod.component.ModDataComponents
 import net.minecraft.block.Block
 import net.minecraft.block.BlockState
-import net.minecraft.block.EntityShapeContext
 import net.minecraft.block.ShapeContext
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityCollisionHandler
-import net.minecraft.entity.FallingBlockEntity
 import net.minecraft.item.ItemPlacementContext
 import net.minecraft.item.ItemStack
 import net.minecraft.state.StateManager
@@ -68,49 +66,28 @@ class JamBlock(settings: Settings) : Block(settings) {
         pos: BlockPos,
         entity: Entity,
         handler: EntityCollisionHandler
-    ) {
-        entity.slowMovement(state, MOVEMENT_MULTIPLIER)
-    }
+    ) = entity.slowMovement(state, MOVEMENT_MULTIPLIER)
 
     override fun getCameraCollisionShape(
-        state: BlockState?,
-        world: BlockView?,
-        pos: BlockPos?,
+        state: BlockState,
+        world: BlockView,
+        pos: BlockPos,
         context: ShapeContext?
-    ): VoxelShape? {
-        return VoxelShapes.empty()
-    }
+    ): VoxelShape = VoxelShapes.empty()
 
     override fun getInsideCollisionShape(
         state: BlockState,
         world: BlockView,
         pos: BlockPos,
         entity: Entity
-    ): VoxelShape {
-        val shape = getCollisionShape(state, world, pos, ShapeContext.of(entity))
-        return if (shape.isEmpty) VoxelShapes.fullCube() else shape
-    }
+    ): VoxelShape = VoxelShapes.fullCube()
 
     override fun getCollisionShape(
         state: BlockState,
         world: BlockView,
         pos: BlockPos,
         context: ShapeContext
-    ): VoxelShape {
-        if (!context.isPlacement && context is EntityShapeContext) {
-            val entity = context.entity
-            if (entity != null && entity.fallDistance > 2.5) {
-                return FALLING_SHAPE
-            }
-
-            val isFallingBlock = entity is FallingBlockEntity
-            if (isFallingBlock && context.isAbove(VoxelShapes.fullCube(), pos, false) && !context.isDescending) {
-                return super.getCollisionShape(state, world, pos, context)
-            }
-        }
-
-        return VoxelShapes.empty()
-    }
+    ): VoxelShape = VoxelShapes.empty()
 
     override fun getCodec() = CODEC
 
@@ -120,8 +97,6 @@ class JamBlock(settings: Settings) : Block(settings) {
         val BLUE = JamBlockProperties.BLUE
 
         val CODEC: MapCodec<JamBlock> = createCodec(::JamBlock)
-        val MOVEMENT_MULTIPLIER = Vec3d(0.5, 0.5, 0.5)
-
-        private val FALLING_SHAPE = VoxelShapes.cuboid(0.0, 0.0, 0.0, 1.0, 0.9, 1.0)
+        val MOVEMENT_MULTIPLIER = Vec3d(0.5, 0.25, 0.5)
     }
 }

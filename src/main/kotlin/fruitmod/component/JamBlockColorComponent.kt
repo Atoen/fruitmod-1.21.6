@@ -11,6 +11,7 @@ data class JamBlockColorComponent(val red: Int, val green: Int, val blue: Int) {
     companion object {
 
         val DEFAULT = JamBlockColorComponent(13, 2, 4)
+        val EMPTY = JamBlockColorComponent(0, 0, 0)
 
         val CODEC: Codec<JamBlockColorComponent>
         val PACKET_CODEC: PacketCodec<RegistryByteBuf, JamBlockColorComponent>

@@ -6,6 +6,7 @@ import fruitmod.item.ModItemGroups
 import fruitmod.item.ModItems
 import fruitmod.item.jam.Jams
 import fruitmod.particle.ModParticles
+import fruitmod.recipe.ModRecipes
 import fruitmod.sound.ModSounds
 import fruitmod.world.gen.ModWorldGeneration
 import net.fabricmc.api.ModInitializer
@@ -30,6 +31,7 @@ object FruitMod : ModInitializer {
 
 		ModItems.registerModItems()
 		ModBlocks.registerModBlocks()
+		ModRecipes.registerRecipes()
 
 		ModItemGroups.addJamBlocksToGroup()
 

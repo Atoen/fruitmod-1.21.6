@@ -26,7 +26,7 @@ public class CameraMixin {
         if (!ready) {
             cir.setReturnValue(CameraSubmersionType.NONE);
         } else {
-            var cameraPos = ((Camera)(Object)this).getPos();
+            var cameraPos = ((Camera) (Object) this).getPos();
             var blockPos = BlockPos.ofFloored(cameraPos);
             var blockState = area.getBlockState(blockPos);
 
@@ -39,4 +39,3 @@ public class CameraMixin {
         }
     }
 }
-

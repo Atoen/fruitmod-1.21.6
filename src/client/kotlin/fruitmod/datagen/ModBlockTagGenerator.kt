@@ -15,12 +15,15 @@ internal class ModBlockTagGenerator(
     completableFuture: CompletableFuture<RegistryWrapper.WrapperLookup>
 ) : FabricTagProvider.BlockTagProvider(output, completableFuture) {
 
-    override fun configure(wrapperLookup: RegistryWrapper.WrapperLookup?) {
+    override fun configure(wrapperLookup: RegistryWrapper.WrapperLookup) {
         getTagBuilder(BlockTags.LOGS_THAT_BURN)
             .add(ModBlocks.DRIFTWOOD_LOG)
             .add(ModBlocks.STRIPPED_DRIFTWOOD_LOG)
             .add(ModBlocks.STRIPPED_DRIFTWOOD_WOOD)
             .add(ModBlocks.DRIFTWOOD_WOOD)
+
+        getTagBuilder(BlockTags.CLIMBABLE)
+            .add(ModBlocks.JAM_BLOCK)
     }
 }
 
