@@ -24,6 +24,10 @@ internal class ModBlockTagGenerator(
 
         getTagBuilder(BlockTags.CLIMBABLE)
             .add(ModBlocks.JAM_BLOCK)
+
+        getTagBuilder(BlockTags.SHOVEL_MINEABLE)
+            .add(ModBlocks.JAM_BLOCK)
+            .add(ModBlocks.SOLID_JAM_BLOCK)
     }
 }
 

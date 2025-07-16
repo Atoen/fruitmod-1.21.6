@@ -23,7 +23,7 @@ data class JamTintSource(
         world: ClientWorld?,
         user: LivingEntity?
     ): Int {
-        val colorInt = stack.get(ModDataComponents.JAMS)?.color ?: defaultColor
+        val colorInt = stack.get(ModDataComponents.JAM)?.color ?: defaultColor
         return ColorHelper.fullAlpha(colorInt)
     }
 

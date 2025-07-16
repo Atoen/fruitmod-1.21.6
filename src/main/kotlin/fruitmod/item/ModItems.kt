@@ -64,7 +64,8 @@ object ModItems {
         "jam",
         Item.Settings()
             .maxCount(1)
-            .component(ModDataComponents.JAMS, JamComponent.DEFAULT)
+            .recipeRemainder(JAR)
+            .component(ModDataComponents.JAM, JamComponent.DEFAULT)
             .component(ModDataComponents.JAM_CONSUMABLE, JamConsumableComponent.DEFAULT)
             .component(DataComponentTypes.FOOD, FoodComponents.HONEY_BOTTLE),
         ::JamItem

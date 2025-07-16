@@ -1,8 +1,10 @@
 package fruitmod.recipe
 
+import fruitmod.component.JamBlockColorComponent
 import fruitmod.component.ModDataComponents
 import fruitmod.item.ModItems
 import fruitmod.item.custom.SolidJamBlockItem
+import fruitmod.util.JamColorHelper
 import net.minecraft.item.DyeItem
 import net.minecraft.item.ItemStack
 import net.minecraft.recipe.SpecialCraftingRecipe
@@ -62,12 +64,12 @@ class SolidJamBlockColorRecipe (
 
         val result = ItemStack(ModItems.SOLID_JAM_BLOCK_ITEM, solidJamBlockStacks.size)
         val color = if (dyeStacks.isNotEmpty()) {
-            JamBlockColorRecipe.averageDyeColors(dyeStacks)
+            JamColorHelper.averageDyeColors(dyeStacks)
         } else {
-            JamBlockColorRecipe.averageJamBlockColors(solidJamBlockStacks)
+            JamColorHelper.averageJamBlockColors(solidJamBlockStacks)
         }
 
-        result.set(ModDataComponents.JAM_BLOCK_COLOR, color)
+        result.set(ModDataComponents.JAM_BLOCK_COLOR, JamBlockColorComponent.fromColor3i(color))
         return result
     }
 

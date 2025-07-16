@@ -23,7 +23,7 @@ import net.minecraft.world.event.GameEvent
 data class JamConsumableComponent(val consumeSeconds: Float) {
 
     fun canConsume(user: LivingEntity, stack: ItemStack): Boolean {
-        val jamComponent = stack.get(ModDataComponents.JAMS)
+        val jamComponent = stack.get(ModDataComponents.JAM)
         if (user is PlayerEntity) {
             val hasEffects = jamComponent?.effects?.any() ?: false
             return user.canConsume(hasEffects)
@@ -54,7 +54,7 @@ data class JamConsumableComponent(val consumeSeconds: Float) {
         playSound(user)
 
         stack.run {
-            get(ModDataComponents.JAMS)?.onConsume(world, user)
+            get(ModDataComponents.JAM)?.onConsume(world, user)
             get(DataComponentTypes.FOOD)?.let {
                 onFinishedConsumption(world, user, it)
             }
@@ -68,14 +68,14 @@ data class JamConsumableComponent(val consumeSeconds: Float) {
     fun decrementPortionsUnlessCreative(stack: ItemStack, user: LivingEntity): ItemStack {
         if (user.isInCreativeMode) return stack
 
-        val jamComponent = stack.get(ModDataComponents.JAMS) ?: return stack
+        val jamComponent = stack.get(ModDataComponents.JAM) ?: return stack
         val remainingPortions = (jamComponent.portions - 1).coerceAtLeast(0)
 
         if (remainingPortions == 0) {
             user.setStackInHand(user.activeHand, ModItems.JAR.defaultStack)
         } else {
             val updated = jamComponent.copy(portions = remainingPortions)
-            stack.set(ModDataComponents.JAMS, updated)
+            stack.set(ModDataComponents.JAM, updated)
         }
 
         return stack

@@ -4,6 +4,8 @@ import com.mojang.serialization.Codec
 import com.mojang.serialization.codecs.RecordCodecBuilder
 import fruitmod.item.jam.Jam
 import fruitmod.item.jam.JamIngredient
+import fruitmod.util.Color3i
+import fruitmod.util.JamColorComponent
 import net.minecraft.component.ComponentsAccess
 import net.minecraft.component.type.PotionContentsComponent
 import net.minecraft.entity.LivingEntity
@@ -35,7 +37,7 @@ data class JamComponent(
     val additionalEffects: List<StatusEffectInstance>,
     val customName: Optional<String>,
     val portions: Int
-) :  TooltipAppender {
+) : TooltipAppender, JamColorComponent {
 
     constructor(jam: RegistryEntry<Jam>) : this(
         Optional.of(jam),
@@ -45,6 +47,9 @@ data class JamComponent(
         Optional.empty(),
         DEFAULT_PORTIONS
     )
+
+    override val channels: Color3i
+        get() = Color3i.fromRGB(color)
 
     val color: Int
         get() = getColor(DEFAULT_COLOR)
@@ -214,7 +219,7 @@ data class JamComponent(
 
         fun createStack(item: Item, jam: RegistryEntry<Jam>): ItemStack {
             return ItemStack(item).apply {
-                set(ModDataComponents.JAMS, JamComponent(jam))
+                set(ModDataComponents.JAM, JamComponent(jam))
             }
         }
 

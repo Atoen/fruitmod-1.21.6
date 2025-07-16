@@ -8,7 +8,7 @@ import net.minecraft.util.Identifier
 
 object ModDataComponents {
 
-    val JAMS = register("jams") {
+    val JAM = register("jam") {
         it.codec(JamComponent.CODEC).packetCodec(JamComponent.PACKET_CODEC).cache()
     }
 

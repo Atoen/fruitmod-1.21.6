@@ -62,5 +62,13 @@
   "jam_ingredient.fruitmod.strawberry": "Strawberry",
   "jam_ingredient.fruitmod.kiwi": "Kiwi",
   "jam_ingredient.fruitmod.orange": "Orange",
-  "jam_ingredient.fruitmod.raspberry": "Raspberry"
+  "jam_ingredient.fruitmod.raspberry": "Raspberry",
+
+  "jam.fruitmod.rgb_R": "R",
+  "jam.fruitmod.rgb_g": "G",
+  "jam.fruitmod.rgb_b": "B",
+  "item.fruitmod.jam_block_item": "Jam Block",
+  "item.fruitmod.jam_block_item_templated": "Jam Block %s",
+  "item.fruitmod.solid_jam_block_item": "Solid Jam Block",
+  "item.fruitmod.solid_jam_block_item_templated": "Solid Jam Block %s"
 }

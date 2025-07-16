@@ -67,6 +67,7 @@ object ModBlocks {
     val JAM_BLOCK = registerBlock("jam_block",
         createSettings()
             .sounds(BlockSoundGroup.HONEY)
+            .strength(1f)
             .nonOpaque(),
         ::JamBlock,
         alsoRegisterItem = false
@@ -74,7 +75,8 @@ object ModBlocks {
 
     val SOLID_JAM_BLOCK = registerBlock("solid_jam_block",
         createSettings()
-            .sounds(BlockSoundGroup.HONEY),
+            .sounds(BlockSoundGroup.HONEY)
+            .strength(1f),
         ::SolidJamBlock,
         alsoRegisterItem = false
     )

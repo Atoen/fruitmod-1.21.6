@@ -22,7 +22,7 @@ class JamItem(settings: Settings): Item(settings) {
 
     override fun getDefaultStack(): ItemStack {
         return defaultStack.apply {
-            set(ModDataComponents.JAMS, JamComponent(Jams.STRAWBERRY_JAM))
+            set(ModDataComponents.JAM, JamComponent(Jams.STRAWBERRY_JAM))
         }
     }
 
@@ -65,7 +65,7 @@ class JamItem(settings: Settings): Item(settings) {
     }
 
     override fun getName(stack: ItemStack): Text {
-        val jam = stack.get(ModDataComponents.JAMS)
+        val jam = stack.get(ModDataComponents.JAM)
         return jam?.name ?: super.getName(stack)
     }
 
@@ -77,14 +77,14 @@ class JamItem(settings: Settings): Item(settings) {
         textConsumer: Consumer<Text>,
         type: TooltipType
     ) {
-        stack.get(ModDataComponents.JAMS)?.run {
+        stack.get(ModDataComponents.JAM)?.run {
             appendTooltip(context, textConsumer, type, stack.components)
         }
     }
 
     companion object {
         fun getRemainingPortions(stack: ItemStack): Int {
-            val jamComponent = stack.get(ModDataComponents.JAMS)
+            val jamComponent = stack.get(ModDataComponents.JAM)
             return jamComponent?.portions ?: 0
         }
     }

@@ -18,6 +18,9 @@ object ModRecipes {
         SpecialCraftingRecipe.SpecialRecipeSerializer(::SolidJamBlockColorRecipe)
     )
 
+    val JAM_BLOCK = register("jam_block",
+        SpecialCraftingRecipe.SpecialRecipeSerializer(::JamBlockRecipe))
+
     fun registerRecipes() {
         FruitMod.logger.info("Registering Custom Recipes for ${FruitMod.MOD_ID}")
     }
