@@ -2,11 +2,11 @@ package fruitmod.item.jam
 
 import fruitmod.FruitMod
 import fruitmod.ModRegistries
+import fruitmod.util.modIdentifier
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.registry.Registry
 import net.minecraft.registry.entry.RegistryEntry
-import net.minecraft.util.Identifier
 
 object JamIngredients {
     val BLUEBERRY = registerIngredient {
@@ -110,7 +110,7 @@ object JamIngredients {
 
         return Registry.registerReference(
             ModRegistries.JAM_INGREDIENT_REGISTRY,
-            Identifier.of(FruitMod.MOD_ID, ingredient.name),
+            modIdentifier(ingredient.name),
             ingredient
         )
     }

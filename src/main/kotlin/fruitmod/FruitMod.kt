@@ -8,6 +8,7 @@ import fruitmod.item.jam.Jams
 import fruitmod.particle.ModParticles
 import fruitmod.recipe.ModRecipes
 import fruitmod.sound.ModSounds
+import fruitmod.util.ModTags
 import fruitmod.world.gen.ModWorldGeneration
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry
@@ -19,6 +20,9 @@ object FruitMod : ModInitializer {
 	val logger = LoggerFactory.getLogger(MOD_ID)!!
 
 	override fun onInitialize() {
+
+		ModTags.registerTags()
+
 		ModItemGroups.registerItemGroups()
 		ModSounds.registerSounds()
 		ModParticles.registerParticles()
@@ -31,6 +35,8 @@ object FruitMod : ModInitializer {
 
 		ModItems.registerModItems()
 		ModBlocks.registerModBlocks()
+
+//		ModRecipeSerializers.registerSerializers()
 		ModRecipes.registerRecipes()
 
 		ModItemGroups.addJamBlocksToGroup()

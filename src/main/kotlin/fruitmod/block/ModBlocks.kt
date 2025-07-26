@@ -6,6 +6,7 @@ import fruitmod.block.custom.HoneyBerryBushBlock
 import fruitmod.block.custom.JamBlock
 import fruitmod.block.custom.SolidJamBlock
 import fruitmod.item.ModItemGroups
+import fruitmod.util.modIdentifier
 import fruitmod.world.gen.ModSaplingGenerators
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
 import net.minecraft.block.*
@@ -16,7 +17,6 @@ import net.minecraft.registry.Registry
 import net.minecraft.registry.RegistryKey
 import net.minecraft.registry.RegistryKeys
 import net.minecraft.sound.BlockSoundGroup
-import net.minecraft.util.Identifier
 
 object ModBlocks {
 
@@ -66,6 +66,7 @@ object ModBlocks {
 
     val JAM_BLOCK = registerBlock("jam_block",
         createSettings()
+            .ticksRandomly()
             .sounds(BlockSoundGroup.HONEY)
             .strength(1f)
             .nonOpaque(),
@@ -89,11 +90,11 @@ object ModBlocks {
         itemSettings: Item.Settings? = null,
         itemFactory: ((Block, Item.Settings) -> BlockItem)? = null
     ): Block {
-        val blockKey = RegistryKey.of(RegistryKeys.BLOCK, Identifier.of(FruitMod.MOD_ID, name))
+        val blockKey = RegistryKey.of(RegistryKeys.BLOCK, modIdentifier(name))
         val block = factory(settings.registryKey(blockKey))
 
         if (alsoRegisterItem) {
-            val itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FruitMod.MOD_ID, name))
+            val itemKey = RegistryKey.of(RegistryKeys.ITEM, modIdentifier(name))
             val itemSettings = (itemSettings ?: Item.Settings()).registryKey(itemKey)
 
             val blockItem = itemFactory?.invoke(block, itemSettings)

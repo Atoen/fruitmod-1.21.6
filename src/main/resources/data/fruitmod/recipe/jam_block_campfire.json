@@ -1,0 +1,10 @@
+{
+  "type": "fruitmod:jam_block_campfire",
+  "category": "misc",
+  "cookingtime": 400,
+  "experience": 0.35,
+  "ingredient": "fruitmod:jam_block_item",
+  "result": {
+    "id": "fruitmod:solid_jam_block_item"
+  }
+}

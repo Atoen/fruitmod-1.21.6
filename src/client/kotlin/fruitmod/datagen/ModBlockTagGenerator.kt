@@ -1,9 +1,11 @@
 package fruitmod.datagen
 
 import fruitmod.block.ModBlocks
+import fruitmod.util.ModTags
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider
 import net.minecraft.block.Block
+import net.minecraft.block.Blocks
 import net.minecraft.registry.Registries
 import net.minecraft.registry.RegistryWrapper
 import net.minecraft.registry.tag.BlockTags
@@ -28,6 +30,18 @@ internal class ModBlockTagGenerator(
         getTagBuilder(BlockTags.SHOVEL_MINEABLE)
             .add(ModBlocks.JAM_BLOCK)
             .add(ModBlocks.SOLID_JAM_BLOCK)
+
+        getTagBuilder(ModTags.Blocks.HEAT_SOURCES)
+            .add(Blocks.LAVA)
+            .add(Blocks.FIRE)
+            .add(Blocks.SOUL_FIRE)
+            .add(Blocks.MAGMA_BLOCK)
+            .add(Blocks.SOUL_FIRE)
+            .add(Blocks.SOUL_CAMPFIRE)
+            .add(Blocks.TORCH)
+            .add(Blocks.SOUL_TORCH)
+            .add(Blocks.WALL_TORCH)
+            .add(Blocks.LAVA_CAULDRON)
     }
 }
 

@@ -2,9 +2,9 @@ package fruitmod.item.jam
 
 import fruitmod.FruitMod
 import fruitmod.ModRegistries
+import fruitmod.util.modIdentifier
 import net.minecraft.registry.Registry
 import net.minecraft.registry.entry.RegistryEntry
-import net.minecraft.util.Identifier
 
 object Jams {
 
@@ -53,7 +53,7 @@ object Jams {
         val jam = factory()
         return Registry.registerReference(
             ModRegistries.JAM_REGISTRY,
-            Identifier.of(FruitMod.MOD_ID, jam.name),
+            modIdentifier(jam.name),
             jam
         )
     }

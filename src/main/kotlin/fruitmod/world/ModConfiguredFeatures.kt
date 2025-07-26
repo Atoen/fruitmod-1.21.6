@@ -1,12 +1,11 @@
 package fruitmod.world
 
-import fruitmod.FruitMod
 import fruitmod.block.ModBlocks
+import fruitmod.util.modIdentifier
 import net.minecraft.block.LeavesBlock
 import net.minecraft.registry.Registerable
 import net.minecraft.registry.RegistryKey
 import net.minecraft.registry.RegistryKeys
-import net.minecraft.util.Identifier
 import net.minecraft.util.math.intprovider.ConstantIntProvider
 import net.minecraft.world.gen.feature.ConfiguredFeature
 import net.minecraft.world.gen.feature.Feature
@@ -37,7 +36,7 @@ object ModConfiguredFeatures {
     }
 
     fun registerKey(name: String): RegistryKey<ConfiguredFeature<*, *>> {
-        return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, Identifier.of(FruitMod.MOD_ID, name))
+        return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, modIdentifier(name))
     }
 
     private fun <FC : FeatureConfig, F : Feature<FC>> register(

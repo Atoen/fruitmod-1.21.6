@@ -7,13 +7,10 @@ import fruitmod.component.JamBlockColorComponent
 import fruitmod.component.JamComponent
 import fruitmod.component.JamConsumableComponent
 import fruitmod.component.ModDataComponents
-import fruitmod.item.custom.CoconutItem
-import fruitmod.item.custom.JamBlockItem
-import fruitmod.item.custom.JamItem
-import fruitmod.item.custom.OpenCoconutItem
-import fruitmod.item.custom.SolidJamBlockItem
+import fruitmod.item.custom.*
 import fruitmod.item.food.ModConsumableComponents
 import fruitmod.item.food.ModFoodComponents
+import fruitmod.util.modIdentifier
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
 import net.minecraft.component.DataComponentTypes
@@ -24,7 +21,6 @@ import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
 import net.minecraft.registry.RegistryKey
 import net.minecraft.registry.RegistryKeys
-import net.minecraft.util.Identifier
 
 object ModItems {
 
@@ -100,7 +96,7 @@ object ModItems {
         settings: Item.Settings = Item.Settings(),
         factory: ((Item.Settings) -> Item) = { Item(it) }
     ): Item {
-        val itemKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of(FruitMod.MOD_ID, name))
+        val itemKey = RegistryKey.of(RegistryKeys.ITEM, modIdentifier(name))
         val item = factory(settings.registryKey(itemKey))
 
         return Registry.register(Registries.ITEM, itemKey, item)

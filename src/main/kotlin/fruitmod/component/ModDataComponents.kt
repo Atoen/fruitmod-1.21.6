@@ -1,10 +1,10 @@
 package fruitmod.component
 
 import fruitmod.FruitMod
+import fruitmod.util.modIdentifier
 import net.minecraft.component.ComponentType
 import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
-import net.minecraft.util.Identifier
 
 object ModDataComponents {
 
@@ -26,7 +26,7 @@ object ModDataComponents {
     ) : ComponentType<T> {
         return Registry.register(
             Registries.DATA_COMPONENT_TYPE,
-            Identifier.of(FruitMod.MOD_ID, name),
+            modIdentifier(name),
             builder(ComponentType.builder<T>()).build()
         )
     }

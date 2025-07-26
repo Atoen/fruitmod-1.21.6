@@ -24,11 +24,12 @@ data class JamBlockColorComponent(val red: Int, val green: Int, val blue: Int) :
         val PACKET_CODEC: PacketCodec<RegistryByteBuf, JamBlockColorComponent>
 
         init {
+
             CODEC = RecordCodecBuilder.create { builder ->
                 builder.group(
                     Codecs.rangedInt(0, 15).fieldOf("red").forGetter { it.red },
-                    Codecs.rangedInt(0, 15).fieldOf("green").forGetter { it.blue },
-                    Codecs.rangedInt(0, 15).fieldOf("blue").forGetter { it.green },
+                    Codecs.rangedInt(0, 15).fieldOf("green").forGetter { it.green },
+                    Codecs.rangedInt(0, 15).fieldOf("blue").forGetter { it.blue },
                 ).apply(builder, ::JamBlockColorComponent)
             }
 

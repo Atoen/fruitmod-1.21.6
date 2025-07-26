@@ -3,17 +3,17 @@ package fruitmod
 import com.mojang.serialization.Lifecycle
 import fruitmod.item.jam.Jam
 import fruitmod.item.jam.JamIngredient
+import fruitmod.util.modIdentifier
 import net.minecraft.Bootstrap
 import net.minecraft.registry.*
 import net.minecraft.registry.entry.RegistryEntryInfo
-import net.minecraft.util.Identifier
 
 object ModRegistries {
 
-    val JAM_INGREDIENT_REGISTRY_KEY: RegistryKey<Registry<JamIngredient>> = RegistryKey.ofRegistry(Identifier.of(FruitMod.MOD_ID, "jam_ingredient"))
+    val JAM_INGREDIENT_REGISTRY_KEY: RegistryKey<Registry<JamIngredient>> = RegistryKey.ofRegistry(modIdentifier("jam_ingredient"))
     val JAM_INGREDIENT_REGISTRY: Registry<JamIngredient>
 
-    val JAM_REGISTRY_KEY: RegistryKey<Registry<Jam>> = RegistryKey.ofRegistry(Identifier.of(FruitMod.MOD_ID, "jam"))
+    val JAM_REGISTRY_KEY: RegistryKey<Registry<Jam>> = RegistryKey.ofRegistry(modIdentifier("jam"))
     val JAM_REGISTRY: Registry<Jam>
 
     init {

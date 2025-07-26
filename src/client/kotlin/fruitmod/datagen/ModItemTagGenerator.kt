@@ -1,8 +1,8 @@
 package fruitmod.datagen
 
-import fruitmod.FruitMod
 import fruitmod.block.ModBlocks
 import fruitmod.item.ModItems
+import fruitmod.util.modIdentifier
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider
 import net.minecraft.block.Block
@@ -13,7 +13,6 @@ import net.minecraft.registry.RegistryWrapper
 import net.minecraft.registry.tag.ItemTags
 import net.minecraft.registry.tag.TagBuilder
 import net.minecraft.registry.tag.TagKey
-import net.minecraft.util.Identifier
 import java.util.concurrent.CompletableFuture
 
 internal class ModItemTagGenerator(
@@ -24,7 +23,7 @@ internal class ModItemTagGenerator(
     val FRUITY_ITEMS = createTag("fruity_items")
 
     private fun createTag(name: String): TagKey<Item> =
-        TagKey.of(RegistryKeys.ITEM, Identifier.of(FruitMod.MOD_ID, name))
+        TagKey.of(RegistryKeys.ITEM, modIdentifier(name))
 
     override fun configure(arg: RegistryWrapper.WrapperLookup) {
         getTagBuilder(FRUITY_ITEMS)
