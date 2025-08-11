@@ -11,7 +11,7 @@ object ModSounds {
     val BONK = registerSoundEvent("bonk")
 
     fun registerSounds() {
-        FruitMod.logger.info("Registering sounds for ${FruitMod.MOD_ID}")
+        FruitMod.logger.info("Registering sounds for {}", FruitMod.MOD_ID)
     }
 
     private fun registerSoundEvent(name: String): SoundEvent {

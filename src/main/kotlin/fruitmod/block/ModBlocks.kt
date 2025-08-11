@@ -4,6 +4,8 @@ import fruitmod.FruitMod
 import fruitmod.block.custom.DriftwoodLeavesBlock
 import fruitmod.block.custom.HoneyBerryBushBlock
 import fruitmod.block.custom.JamBlock
+import fruitmod.block.custom.JamStationBlock
+import fruitmod.block.custom.PedestalBlock
 import fruitmod.block.custom.SolidJamBlock
 import fruitmod.item.ModItemGroups
 import fruitmod.util.modIdentifier
@@ -82,6 +84,17 @@ object ModBlocks {
         alsoRegisterItem = false
     )
 
+    val PEDESTAL = registerBlock("pedestal",
+        createSettings()
+            .nonOpaque(),
+        ::PedestalBlock
+    )
+
+    val JAM_STATION = registerBlock("jam_station",
+        createSettings().nonOpaque(),
+        ::JamStationBlock
+    )
+
     private fun registerBlock(
         name: String,
         settings: AbstractBlock.Settings,
@@ -107,7 +120,7 @@ object ModBlocks {
     }
 
     fun registerModBlocks() {
-        FruitMod.logger.info("Registering Mod Blocks for ${FruitMod.MOD_ID}")
+        FruitMod.logger.info("Registering Mod Blocks for {}", FruitMod.MOD_ID)
 
         ItemGroupEvents.modifyEntriesEvent(ModItemGroups.FRUITMOD_ITEM_GROUP_KEY).register {
             it.run {

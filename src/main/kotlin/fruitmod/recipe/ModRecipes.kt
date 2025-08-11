@@ -34,7 +34,7 @@ object ModRecipes {
         AbstractCookingRecipe.Serializer(::JamBlockCampfireRecipe, 400))
 
     fun registerRecipes() {
-        FruitMod.logger.info("Registering Custom Recipes for ${FruitMod.MOD_ID}")
+        FruitMod.logger.info("Registering Custom Recipes for {}", FruitMod.MOD_ID)
 
         ModRecipeSerializers.registerSerializers()
         ModRecipeBookCategories.registerRecipeBookCategories()

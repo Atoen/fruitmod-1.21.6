@@ -13,7 +13,7 @@ class Jam(
     val createNameFromIngredients : Boolean = true
 ) {
     companion object {
-        val CODEC: Codec<RegistryEntry<Jam>> = ModRegistries.JAM_REGISTRY.entryCodec
+        val CODEC: Codec<RegistryEntry<Jam>> = ModRegistries.JAM.entryCodec
         val PACKET_CODEC: PacketCodec<RegistryByteBuf, RegistryEntry<Jam>> =
             PacketCodecs.registryEntry(ModRegistries.JAM_REGISTRY_KEY)
     }

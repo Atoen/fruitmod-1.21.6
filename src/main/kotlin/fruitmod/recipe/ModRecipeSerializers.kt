@@ -9,10 +9,8 @@ import net.minecraft.registry.Registry
 
 object ModRecipeSerializers {
 
-
-
     fun registerSerializers() {
-        FruitMod.logger.info("Registering Custom Recipe Serializers for ${FruitMod.MOD_ID}")
+        FruitMod.logger.info("Registering Custom Recipe Serializers for {}", FruitMod.MOD_ID)
     }
 
     private fun <S : RecipeSerializer<T>, T : Recipe<*>> register(name: String, serializer: S) =

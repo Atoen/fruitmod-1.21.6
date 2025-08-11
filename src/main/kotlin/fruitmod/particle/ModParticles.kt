@@ -12,7 +12,7 @@ object ModParticles {
     val BONK_PARTICLE = registerParticle("bonk_particle", FabricParticleTypes.simple(true))
 
     fun registerParticles() {
-        FruitMod.logger.info("Registering particles for ${FruitMod.MOD_ID}")
+        FruitMod.logger.info("Registering particles for {}", FruitMod.MOD_ID)
     }
 
     private fun registerParticle(name: String, particleType: SimpleParticleType): SimpleParticleType {

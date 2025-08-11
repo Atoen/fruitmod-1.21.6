@@ -1,14 +1,16 @@
 package fruitmod
 
 import fruitmod.block.ModBlocks
+import fruitmod.block.entity.ModBlockEntities
 import fruitmod.component.ModDataComponents
 import fruitmod.item.ModItemGroups
 import fruitmod.item.ModItems
 import fruitmod.item.jam.Jams
 import fruitmod.particle.ModParticles
 import fruitmod.recipe.ModRecipes
+import fruitmod.recipe.SpecialJamRecipes
+import fruitmod.screen.ModScreenHandlers
 import fruitmod.sound.ModSounds
-import fruitmod.util.ModTags
 import fruitmod.world.gen.ModWorldGeneration
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry
@@ -36,10 +38,14 @@ object FruitMod : ModInitializer {
 		ModItems.registerModItems()
 		ModBlocks.registerModBlocks()
 
-//		ModRecipeSerializers.registerSerializers()
+		ModBlockEntities.registerBlockEntities()
 		ModRecipes.registerRecipes()
 
 		ModItemGroups.addJamBlocksToGroup()
+
+		ModScreenHandlers.registerScreenHandles()
+
+		SpecialJamRecipes.call()
 
 		StrippableBlockRegistry.register(ModBlocks.DRIFTWOOD_LOG, ModBlocks.STRIPPED_DRIFTWOOD_LOG)
 		StrippableBlockRegistry.register(ModBlocks.DRIFTWOOD_WOOD, ModBlocks.STRIPPED_DRIFTWOOD_WOOD)

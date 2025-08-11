@@ -2,7 +2,7 @@ package fruitmod.block.custom
 
 import com.mojang.serialization.MapCodec
 import fruitmod.block.ModBlocks
-import fruitmod.util.ModTags
+import fruitmod.ModTags
 import net.minecraft.block.BlockState
 import net.minecraft.block.Blocks
 import net.minecraft.block.CandleBlock

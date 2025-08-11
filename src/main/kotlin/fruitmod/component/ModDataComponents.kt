@@ -32,6 +32,6 @@ object ModDataComponents {
     }
 
     fun registerDataComponentTypes() {
-        FruitMod.logger.info("Registering Data Component Types for ${FruitMod.MOD_ID}")
+        FruitMod.logger.info("Registering Data Component Types for {}", FruitMod.MOD_ID)
     }
 }

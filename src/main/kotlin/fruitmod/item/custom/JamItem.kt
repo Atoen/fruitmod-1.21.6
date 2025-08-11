@@ -1,9 +1,7 @@
 package fruitmod.item.custom
 
-import fruitmod.component.JamComponent
 import fruitmod.component.JamConsumableComponent
 import fruitmod.component.ModDataComponents
-import fruitmod.item.jam.Jams
 import net.minecraft.component.type.TooltipDisplayComponent
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.player.PlayerEntity
@@ -19,12 +17,6 @@ import net.minecraft.world.World
 import java.util.function.Consumer
 
 class JamItem(settings: Settings): Item(settings) {
-
-    override fun getDefaultStack(): ItemStack {
-        return defaultStack.apply {
-            set(ModDataComponents.JAM, JamComponent(Jams.STRAWBERRY_JAM))
-        }
-    }
 
     override fun usageTick(world: World, user: LivingEntity, stack: ItemStack, remainingUseTicks: Int) {
         val jamConsumableComponent = stack.get(ModDataComponents.JAM_CONSUMABLE)

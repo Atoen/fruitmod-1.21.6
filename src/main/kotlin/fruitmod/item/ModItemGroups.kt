@@ -1,6 +1,7 @@
 package fruitmod.item
 
 import fruitmod.FruitMod
+import fruitmod.block.ModBlocks
 import fruitmod.component.JamBlockColorComponent
 import fruitmod.component.ModDataComponents
 import fruitmod.util.modIdentifier
@@ -44,7 +45,7 @@ object ModItemGroups {
 
 
     fun registerItemGroups() {
-        FruitMod.logger.info("Registering Item Groups for ${FruitMod.MOD_ID}")
+        FruitMod.logger.info("Registering Item Groups for {}", FruitMod.MOD_ID)
     }
 
     fun addJamBlocksToGroup() {
@@ -91,6 +92,8 @@ object ModItemGroups {
         ItemGroupEvents.modifyEntriesEvent(FRUITMOD_BLOCK_GROUP_KEY).register {
             it.addAll(jamBlockStacks)
             it.addAll(solidJamBlockStacks)
+
+            it.add { ModBlocks.PEDESTAL.asItem() }
         }
     }
 }

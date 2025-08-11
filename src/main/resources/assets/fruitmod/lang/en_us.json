@@ -45,6 +45,12 @@
 
   "sounds.fruitmod.bonk": "Bonk!",
 
+  "block.fruitmod.pedestal": "Pedestal",
+  "item.fruitmod.pedestal": "Pedestal",
+
+  "block.fruitmod.jam_station": "Jam Station",
+  "item.fruitmod.jam_station": "Jam Station",
+
   "item.fruitmod.jar": "Jar",
   "item.fruitmod.empty_jar": "Empty Jar",
 
@@ -70,5 +76,7 @@
   "item.fruitmod.jam_block_item": "Jam Block",
   "item.fruitmod.jam_block_item_templated": "Jam Block %s",
   "item.fruitmod.solid_jam_block_item": "Solid Jam Block",
-  "item.fruitmod.solid_jam_block_item_templated": "Solid Jam Block %s"
+  "item.fruitmod.solid_jam_block_item_templated": "Solid Jam Block %s",
+
+  "container.fruitmod.jam_station": "Jam Station"
 }

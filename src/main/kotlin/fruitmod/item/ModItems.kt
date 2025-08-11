@@ -54,6 +54,8 @@ object ModItems {
     val STRAWBERRY = registerItem("strawberry", Item.Settings().food(ModFoodComponents.LOW_NUTRITION_FRUIT, ModConsumableComponents.FAST_FRUIT))
 
     val JAR = registerItem("jar")
+
+    @Deprecated("", replaceWith = ReplaceWith("JAR"))
     val EMPTY_JAR = registerItem("empty_jar")
 
     val JAM = registerItem(
@@ -82,7 +84,7 @@ object ModItems {
     )
 
     private fun generateJams() {
-        val jamStacks = ModRegistries.JAM_REGISTRY.streamEntries()
+        val jamStacks = ModRegistries.JAM.streamEntries()
             .map { JamComponent.createStack(JAM, it) }
             .toList()
 
@@ -103,7 +105,7 @@ object ModItems {
     }
 
     fun registerModItems() {
-        FruitMod.logger.info("Registering Mod Items for ${FruitMod.MOD_ID}")
+        FruitMod.logger.info("Registering Mod Items for {}", FruitMod.MOD_ID)
 
         ItemGroupEvents.modifyEntriesEvent(ModItemGroups.FRUITMOD_ITEM_GROUP_KEY).register {
             it.add(

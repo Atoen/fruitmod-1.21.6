@@ -11,7 +11,7 @@ object ModRecipeBookCategories {
     val SMOKER_BLOCKS = register("smoker_blocks")
 
     fun registerRecipeBookCategories() {
-        FruitMod.logger.info("Registering Custom Recipe Book Categories for ${FruitMod.MOD_ID}")
+        FruitMod.logger.info("Registering Custom Recipe Book Categories for {}", FruitMod.MOD_ID)
     }
 
     private fun register(name: String) = Registry.register(
