@@ -22,21 +22,7 @@ import net.minecraft.world.event.GameEvent
 
 data class JamConsumableComponent(val consumeSeconds: Float) {
 
-    fun canConsume(user: LivingEntity, stack: ItemStack): Boolean {
-        val jamComponent = stack.get(ModDataComponents.JAM)
-        if (user is PlayerEntity) {
-            val hasEffects = jamComponent?.effects?.any() ?: false
-            return user.canConsume(hasEffects)
-        }
-
-        return true
-    }
-
     fun consume(user: LivingEntity, stack: ItemStack, hand: Hand): ActionResult {
-        if (!canConsume(user, stack)) {
-            return ActionResult.FAIL
-        }
-
         val hasConsumeTime = consumeTicks > 0
         if (hasConsumeTime) {
             user.setCurrentHand(hand)
@@ -120,23 +106,18 @@ data class JamConsumableComponent(val consumeSeconds: Float) {
         const val DEFAULT_CONSUME_SECONDS: Float = 1.6f
         const val DEFAULT_CONSUME_TICKS: Int = (20 * DEFAULT_CONSUME_SECONDS).toInt()
 
-        val CODEC: Codec<JamConsumableComponent>
-        val PACKET_CODEC: PacketCodec<RegistryByteBuf, JamConsumableComponent>
-
         val DEFAULT = JamConsumableComponent(DEFAULT_CONSUME_SECONDS)
 
-        init {
-            CODEC = RecordCodecBuilder.create { builder ->
-                builder.group(
-                    Codecs.NON_NEGATIVE_FLOAT.fieldOf("consume_seconds").forGetter { it.consumeSeconds }
-                ).apply(builder, ::JamConsumableComponent)
-            }
-
-            PACKET_CODEC = PacketCodec.tuple(
-                PacketCodecs.FLOAT,
-                JamConsumableComponent::consumeSeconds,
-                ::JamConsumableComponent
-            )
+        val CODEC: Codec<JamConsumableComponent> = RecordCodecBuilder.create { builder ->
+            builder.group(
+                Codecs.NON_NEGATIVE_FLOAT.fieldOf("consume_seconds").forGetter { it.consumeSeconds }
+            ).apply(builder, ::JamConsumableComponent)
         }
+
+        val PACKET_CODEC: PacketCodec<RegistryByteBuf, JamConsumableComponent> = PacketCodec.tuple(
+            PacketCodecs.FLOAT,
+            JamConsumableComponent::consumeSeconds,
+            ::JamConsumableComponent
+        )
     }
 }

@@ -1,6 +1,5 @@
 // 1.21.6	-999999999-01-01T00:00:00	FruitMod/Tags for minecraft:item
-7d1a04efaf2bb834d9408ae57337ddfda5be525f data/fruitmod/tags/item/fruity_items.json
-67dbc06474286fb4855258e04e30c71a9276cdc8 data/fruitmod/tags/item/jam_base.json
+1ec522fb90980d260bbeeb6c46a2de6d03dbee71 data/fruitmod/tags/item/jam_base.json
 3b5cd8faeb57e573aad0ca808c37cac537f5bb7b data/fruitmod/tags/item/jam_ingredient.json
 58ec5fe2f0f3c7ebb6a9c5069f7214ced4a8b6bb data/minecraft/tags/item/logs_that_burn.json
 f34ecd3925de9062426b00cedaf89e16cab826f5 data/minecraft/tags/item/planks.json

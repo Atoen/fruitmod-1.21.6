@@ -1,15 +1,15 @@
 package fruitmod.item
 
 import fruitmod.FruitMod
-import fruitmod.ModRegistries
 import fruitmod.block.ModBlocks
 import fruitmod.component.JamBlockColorComponent
-import fruitmod.component.JamComponent
 import fruitmod.component.JamConsumableComponent
 import fruitmod.component.ModDataComponents
+import fruitmod.component.JamComponent
 import fruitmod.item.custom.*
 import fruitmod.item.food.ModConsumableComponents
 import fruitmod.item.food.ModFoodComponents
+import fruitmod.jam.crafted.CraftedJams
 import fruitmod.util.modIdentifier
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
@@ -84,9 +84,8 @@ object ModItems {
     )
 
     private fun generateJams() {
-        val jamStacks = ModRegistries.JAM.streamEntries()
+        val jamStacks = CraftedJams.ALL
             .map { JamComponent.createStack(JAM, it) }
-            .toList()
 
         ItemGroupEvents.modifyEntriesEvent(ModItemGroups.FRUITMOD_ITEM_GROUP_KEY).register { entries ->
             entries.addAll(jamStacks)

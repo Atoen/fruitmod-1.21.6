@@ -31,7 +31,7 @@ internal class ModItemTagGenerator(
             .add(ModBlocks.DRIFTWOOD_PLANKS)
 
         getTagBuilder(ModTags.Items.JAM_BASE)
-            .add(Items.SUGAR, Items.GLOWSTONE_DUST)
+            .add(Items.SUGAR, Items.GLOWSTONE_DUST, Items.BLAZE_POWDER, Items.GUNPOWDER, Items.REDSTONE)
 
         getTagBuilder(ModTags.Items.JAM_INGREDIENT)
             .add(Items.APPLE, Items.GOLDEN_APPLE, Items.ENCHANTED_GOLDEN_APPLE)

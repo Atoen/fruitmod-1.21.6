@@ -56,6 +56,11 @@ class JamItem(settings: Settings): Item(settings) {
         return jamConsumableComponent.consumeTicks
     }
 
+    override fun hasGlint(stack: ItemStack): Boolean {
+        val jam = stack.get(ModDataComponents.JAM)
+        return jam?.hasGlint ?: false
+    }
+
     override fun getName(stack: ItemStack): Text {
         val jam = stack.get(ModDataComponents.JAM)
         return jam?.name ?: super.getName(stack)

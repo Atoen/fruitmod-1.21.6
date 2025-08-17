@@ -25,7 +25,7 @@ object ModScreenHandlers {
         ::JamStationScreenHandler
     )
 
-    fun registerScreenHandles() {
+    fun registerScreenHandlers() {
         FruitMod.logger.info("Registering Screen Handlers for {}", FruitMod.MOD_ID)
     }
 

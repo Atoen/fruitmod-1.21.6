@@ -5,8 +5,8 @@ import fruitmod.block.custom.JamStationBlock
 import fruitmod.block.entity.JamCraftingInventory
 import fruitmod.block.entity.ModBlockEntities
 import fruitmod.item.ModItems
-import fruitmod.recipe.JamRecipeKey
-import fruitmod.recipe.JamRecipeRegistry
+import fruitmod.jam.recipe.JamRecipeKey
+import fruitmod.jam.recipe.JamRecipeRegistry
 import fruitmod.screen.custom.JamStationScreenHandler
 import net.minecraft.block.BlockState
 import net.minecraft.block.entity.LockableContainerBlockEntity

@@ -1,8 +1,8 @@
-package fruitmod.item.jam
+package fruitmod.jam.ingredient
 
 import com.mojang.serialization.Codec
-import fruitmod.FruitMod
 import fruitmod.ModRegistries
+import fruitmod.jam.trait.JamTrait
 import fruitmod.util.JamIngredientCategory
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.item.Item
@@ -11,17 +11,23 @@ import net.minecraft.network.codec.PacketCodec
 import net.minecraft.network.codec.PacketCodecs
 import net.minecraft.registry.entry.RegistryEntry
 import net.minecraft.text.Text
+import java.util.*
 
 data class JamIngredient(
-    val name: String,
-    val item: Item,
+    val item: RegistryEntry<Item>,
     val effects: List<StatusEffectInstance>,
     val color: Int = DEFAULT_COLOR,
+    val customNameKey: Optional<String> = Optional.empty(),
+    val trait: Optional<JamTrait> = Optional.empty(),
     val category: JamIngredientCategory = JamIngredientCategory.REGULAR,
 ) {
-    val translationKey = "jam_ingredient.${FruitMod.MOD_ID}.$name"
-    val translatableText: Text
-        get() = Text.translatable(translationKey).formatted(category.format)
+    val translatableText: Text get() {
+        return if (customNameKey.isPresent) {
+            Text.translatable(customNameKey.get())
+        } else {
+            item.value().name
+        }
+    }
 
     companion object {
         const val DEFAULT_COLOR = 0xFC5A8D

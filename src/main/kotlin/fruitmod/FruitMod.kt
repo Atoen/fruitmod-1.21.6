@@ -5,10 +5,9 @@ import fruitmod.block.entity.ModBlockEntities
 import fruitmod.component.ModDataComponents
 import fruitmod.item.ModItemGroups
 import fruitmod.item.ModItems
-import fruitmod.item.jam.Jams
+import fruitmod.jam.registerJamFunctionality
 import fruitmod.particle.ModParticles
 import fruitmod.recipe.ModRecipes
-import fruitmod.recipe.SpecialJamRecipes
 import fruitmod.screen.ModScreenHandlers
 import fruitmod.sound.ModSounds
 import fruitmod.world.gen.ModWorldGeneration
@@ -23,6 +22,9 @@ object FruitMod : ModInitializer {
 
 	override fun onInitialize() {
 
+		ModRegistries.addModRegistries()
+		registerJamFunctionality()
+
 		ModTags.registerTags()
 
 		ModItemGroups.registerItemGroups()
@@ -31,9 +33,7 @@ object FruitMod : ModInitializer {
 
 		ModWorldGeneration.generateModWorldGen()
 
-		ModRegistries.addModRegistries()
 		ModDataComponents.registerDataComponentTypes()
-		Jams.registerJams()
 
 		ModItems.registerModItems()
 		ModBlocks.registerModBlocks()
@@ -43,9 +43,7 @@ object FruitMod : ModInitializer {
 
 		ModItemGroups.addJamBlocksToGroup()
 
-		ModScreenHandlers.registerScreenHandles()
-
-		SpecialJamRecipes.call()
+		ModScreenHandlers.registerScreenHandlers()
 
 		StrippableBlockRegistry.register(ModBlocks.DRIFTWOOD_LOG, ModBlocks.STRIPPED_DRIFTWOOD_LOG)
 		StrippableBlockRegistry.register(ModBlocks.DRIFTWOOD_WOOD, ModBlocks.STRIPPED_DRIFTWOOD_WOOD)

@@ -1,4 +1,4 @@
-package fruitmod.recipe
+package fruitmod.jam.recipe
 
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack

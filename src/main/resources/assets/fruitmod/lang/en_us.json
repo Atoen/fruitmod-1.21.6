@@ -64,6 +64,7 @@
 
   "jam.fruitmod.effects": "Effects:",
   "jam.fruitmod.ingredients": "Ingredients:",
+  "jam.fruitmod.base": "Base: %s",
 
   "jam_ingredient.fruitmod.strawberry": "Strawberry",
   "jam_ingredient.fruitmod.kiwi": "Kiwi",
@@ -78,5 +79,15 @@
   "item.fruitmod.solid_jam_block_item": "Solid Jam Block",
   "item.fruitmod.solid_jam_block_item_templated": "Solid Jam Block %s",
 
-  "container.fruitmod.jam_station": "Jam Station"
+  "container.fruitmod.jam_station": "Jam Station",
+
+  "trait.fruitmod.modify_amplifier.tooltip_add": "Effects' Amplifier Increased By %d",
+  "trait.fruitmod.modify_amplifier.tooltip_subtract": "Effects' Amplifier Decreased By %d",
+  "trait.fruitmod.scale_duration.tooltip": "Effects Duration Scaled by %f",
+  "trait.fruitmod.remove_effect.tooltip": "Removed Effect: %s",
+  "trait.fruitmod.add_effect.tooltip": "Added Effect: %s",
+  "trait.fruitmod.set_on_fire.tooltip": "Sets On Fire!",
+  "trait.fruitmod.explode.tooltip": "Might Explode!",
+  "trait.fruitmod.clear_effect.tooltip": "Clears Effect: %s",
+  "trait.fruitmod.random_teleport.tooltip": "Teleports Randomly"
 }
