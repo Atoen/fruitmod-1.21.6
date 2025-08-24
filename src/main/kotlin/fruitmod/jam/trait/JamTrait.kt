@@ -35,7 +35,7 @@ interface JamTrait {
 }
 
 interface JamModifierTrait : JamTrait {
-    override val deduplicationKey get() = this
+    override val deduplicationKey: Any get() = this
 
     fun applyModifier(effects: List<StatusEffectInstance>): List<StatusEffectInstance>
 }

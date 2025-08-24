@@ -21,7 +21,7 @@ data class JamIngredient(
     val trait: Optional<JamTrait> = Optional.empty(),
     val category: JamIngredientCategory = JamIngredientCategory.REGULAR,
 ) {
-    val translatableText: Text get() {
+    val name: Text get() {
         return if (customNameKey.isPresent) {
             Text.translatable(customNameKey.get())
         } else {

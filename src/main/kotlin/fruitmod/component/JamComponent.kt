@@ -90,7 +90,7 @@ data class JamComponent(
                 val ingredient = ingredients[0].value()
                 Text.translatable(
                     "jam.fruitmod.one_fruit_jam",
-                    ingredient.translatableText
+                    ingredient.name
                 )
             }
             2 -> {
@@ -98,8 +98,8 @@ data class JamComponent(
                 val second = ingredients[1].value()
                 Text.translatable(
                     "jam.fruitmod.two_fruits_jam",
-                    first.translatableText,
-                    second.translatableText,
+                    first.name,
+                    second.name,
                 )
             }
             else -> Text.translatable("jam.fruitmod.mixed_fruit")
@@ -161,13 +161,13 @@ data class JamComponent(
         textConsumer.accept(ScreenTexts.EMPTY)
 
         // Base
-        val baseText = Text.translatable("jam.fruitmod.base", base.value().translatableText)
+        val baseText = Text.translatable("jam.fruitmod.base", base.value().name)
         textConsumer.accept(baseText)
 
         // Ingredients
         if (!ingredients.isEmpty()) {
             val ingredientTexts = ingredients.map {
-                it.value().translatableText
+                it.value().name
             }
 
             val joined = Texts.join(ingredientTexts, Text.literal(", "))
@@ -188,6 +188,8 @@ data class JamComponent(
         }
 
         // Traits
+        if (traits.isEmpty()) return
+
         textConsumer.accept(ScreenTexts.EMPTY)
         traits.forEach {
             it.appendTooltip(context, textConsumer, tooltipType)

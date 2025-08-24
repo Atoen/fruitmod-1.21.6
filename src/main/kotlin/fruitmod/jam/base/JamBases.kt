@@ -44,7 +44,7 @@ object JamBases {
     val REDSTONE = registerBase(
         "redstone", Items.REDSTONE,
         listOf(
-            RandomTeleport(64f)
+            SummonLightning()
         )
     )
 

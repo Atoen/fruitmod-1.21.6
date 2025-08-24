@@ -89,5 +89,6 @@
   "trait.fruitmod.set_on_fire.tooltip": "Sets On Fire!",
   "trait.fruitmod.explode.tooltip": "Might Explode!",
   "trait.fruitmod.clear_effect.tooltip": "Clears Effect: %s",
-  "trait.fruitmod.random_teleport.tooltip": "Teleports Randomly"
+  "trait.fruitmod.random_teleport.tooltip": "Teleports Randomly",
+  "trait.fruitmod.summon_lightning.tooltip": "Summons Lightning"
 }

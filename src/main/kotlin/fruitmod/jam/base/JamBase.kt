@@ -19,7 +19,7 @@ data class JamBase(
     val color: OptionalInt = OptionalInt.empty(),
     val colorInfluence: Float = 0.2f
 ) {
-    val translatableText: Text get() {
+    val name: Text get() {
         return if (customNameKey.isPresent) {
             Text.translatable(customNameKey.get())
         } else {

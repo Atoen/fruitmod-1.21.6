@@ -51,6 +51,11 @@ object TraitTypes {
         TraitType(RandomTeleport.CODEC, RandomTeleport.PACKET_CODEC)
     )
 
+    val SUMMON_LIGHTNING = register(
+        "summon_lightning",
+        TraitType(SummonLightning.CODEC, SummonLightning.PACKET_CODEC)
+    )
+
     fun registerTraitTypes() {
         FruitMod.logger.info("Registering Jam Traits Types for {}", FruitMod.MOD_ID)
     }
