@@ -10,6 +10,7 @@ import fruitmod.particle.ModParticles
 import fruitmod.recipe.ModRecipes
 import fruitmod.screen.ModScreenHandlers
 import fruitmod.sound.ModSounds
+import fruitmod.util.PlaceableItemHandler
 import fruitmod.world.gen.ModWorldGeneration
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry
@@ -22,8 +23,13 @@ object FruitMod : ModInitializer {
 
 	override fun onInitialize() {
 
+		ModBlocks.registerModBlocks()
+		ModItems.registerModItems()
+
 		ModRegistries.addModRegistries()
 		registerJamFunctionality()
+
+		PlaceableItemHandler.setupDefault()
 
 		ModTags.registerTags()
 
@@ -34,9 +40,6 @@ object FruitMod : ModInitializer {
 		ModWorldGeneration.generateModWorldGen()
 
 		ModDataComponents.registerDataComponentTypes()
-
-		ModItems.registerModItems()
-		ModBlocks.registerModBlocks()
 
 		ModBlockEntities.registerBlockEntities()
 		ModRecipes.registerRecipes()

@@ -95,6 +95,30 @@ object ModBlocks {
         ::JamStationBlock
     )
 
+    val APPLE_BLOCK = registerBlock("apple_block",
+        FruitBlocks.defaultSettings(),
+        alsoRegisterItem = false,
+        factory = FruitBlocks::Apple
+    )
+
+    val GOLDEN_APPLE_BLOCK = registerBlock("golden_apple_block",
+        FruitBlocks.defaultSettings(),
+        alsoRegisterItem = false,
+        factory = FruitBlocks::GoldenApple
+    )
+
+    val ENCHANTED_GOLDEN_APPLE_BLOCK = registerBlock("enchanted_golden_apple_block",
+        FruitBlocks.defaultSettings(),
+        alsoRegisterItem = false,
+        factory = FruitBlocks::EnchantedGoldenApple
+    )
+
+    val ORANGE_BLOCK = registerBlock("orange_block",
+        FruitBlocks.defaultSettings(),
+        alsoRegisterItem = false,
+        factory = FruitBlocks::Orange
+    )
+
     private fun registerBlock(
         name: String,
         settings: AbstractBlock.Settings,

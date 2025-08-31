@@ -2,23 +2,10 @@ package fruitmod.block.custom
 
 import com.mojang.serialization.MapCodec
 import fruitmod.block.entity.custom.PedestalBlockEntity
-import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory
-import net.minecraft.block.Block
-import net.minecraft.block.BlockEntityProvider
-import net.minecraft.block.BlockRenderType
-import net.minecraft.block.BlockState
-import net.minecraft.block.BlockWithEntity
-import net.minecraft.block.ShapeContext
-import net.minecraft.block.entity.BlockEntity
+import fruitmod.util.isServer
+import net.minecraft.block.*
 import net.minecraft.entity.player.PlayerEntity
-import net.minecraft.entity.player.PlayerInventory
 import net.minecraft.item.ItemStack
-import net.minecraft.screen.ScreenHandler
-import net.minecraft.server.network.ServerPlayerEntity
-import net.minecraft.server.world.ServerWorld
-import net.minecraft.sound.SoundCategory
-import net.minecraft.sound.SoundEvents
-import net.minecraft.text.Text
 import net.minecraft.util.ActionResult
 import net.minecraft.util.Hand
 import net.minecraft.util.hit.BlockHitResult
@@ -46,7 +33,7 @@ class PedestalBlock(
             return ActionResult.PASS_TO_DEFAULT_BLOCK_ACTION
         }
 
-        if (player.isSneaking && !world.isClient) {
+        if (player.isSneaking && world.isServer) {
             player.openHandledScreen(blockEntity)
         }
 

@@ -3,6 +3,7 @@ package fruitmod.entity
 import fruitmod.item.ModItems
 import fruitmod.particle.ModParticles
 import fruitmod.sound.ModSounds
+import fruitmod.util.isServer
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity
@@ -80,7 +81,7 @@ class CoconutEntity : ThrownItemEntity {
     override fun onCollision(hitResult: HitResult?) {
         super.onCollision(hitResult)
 
-        if (!world.isClient) {
+        if (world.isServer) {
             world.sendEntityStatus(this, 3.toByte())
             discard()
         }

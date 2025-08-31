@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north":  { "model": "fruitmod:block/orange_block", "y": 0 },
+    "facing=east":   { "model": "fruitmod:block/orange_block", "y": 90 },
+    "facing=south":  { "model": "fruitmod:block/orange_block", "y": 180 },
+    "facing=west":   { "model": "fruitmod:block/orange_block", "y": 270 }
+  }
+}

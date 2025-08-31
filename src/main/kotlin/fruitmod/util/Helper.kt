@@ -9,6 +9,7 @@ import net.minecraft.registry.Registries
 import net.minecraft.registry.entry.RegistryEntry
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
+import net.minecraft.world.World
 
 fun modIdentifier(name: String): Identifier = Identifier.of(FruitMod.MOD_ID, name)
 
@@ -55,3 +56,5 @@ fun StatusEffectInstance.getFullTextFormatted(updateTickRate: Float, durationMul
 
     return formatted
 }
+
+val World.isServer get() = !isClient

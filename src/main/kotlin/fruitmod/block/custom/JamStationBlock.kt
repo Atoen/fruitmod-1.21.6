@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec
 import fruitmod.ModTags
 import fruitmod.block.entity.ModBlockEntities
 import fruitmod.block.entity.custom.JamStationBlockEntity
+import fruitmod.util.isServer
 import net.minecraft.block.Block
 import net.minecraft.block.BlockRenderType
 import net.minecraft.block.BlockState
@@ -87,7 +88,7 @@ class JamStationBlock(settings: Settings) : BlockWithEntity(settings) {
         state: BlockState,
         type: BlockEntityType<T>
     ): BlockEntityTicker<T>? {
-        return if (!world.isClient) {
+        return if (world.isServer) {
             validateTicker(type, ModBlockEntities.JAM_STATION, JamStationBlockEntity::tick)
         } else {
             null

@@ -4,6 +4,7 @@ import fruitmod.block.JamBlockProperties
 import fruitmod.component.JamBlockColorComponent
 import fruitmod.component.ModDataComponents
 import fruitmod.util.JamColorHelper
+import fruitmod.util.isServer
 import net.minecraft.block.Block
 import net.minecraft.block.BlockState
 import net.minecraft.entity.player.PlayerEntity
@@ -89,7 +90,7 @@ abstract class BaseJamBlock(settings: Settings) : Block(settings) {
             return ActionResult.PASS_TO_DEFAULT_BLOCK_ACTION
         }
 
-        if (!world.isClient) {
+        if (world.isServer) {
             stack.decrementUnlessCreative(1, player)
 
             val newState = state

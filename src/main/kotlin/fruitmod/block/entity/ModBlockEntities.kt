@@ -2,6 +2,7 @@ package fruitmod.block.entity
 
 import fruitmod.FruitMod
 import fruitmod.block.ModBlocks
+import fruitmod.block.entity.custom.EnchantedGoldenAppleBlockEntity
 import fruitmod.block.entity.custom.JamStationBlockEntity
 import fruitmod.block.entity.custom.PedestalBlockEntity
 import fruitmod.util.modIdentifier
@@ -17,6 +18,8 @@ object ModBlockEntities {
     val PEDESTAL_BLOCK_ENTITY = register("pedestal_be", ::PedestalBlockEntity, ModBlocks.PEDESTAL)
 
     val JAM_STATION = register("jam_station", ::JamStationBlockEntity, ModBlocks.JAM_STATION)
+
+    val ENCHANTED_GOLDEN_APPLE = register("enchanted_golden_apple", ::EnchantedGoldenAppleBlockEntity, ModBlocks.ENCHANTED_GOLDEN_APPLE_BLOCK)
 
     fun registerBlockEntities() {
         FruitMod.logger.info("Registering Block Entities for {}", FruitMod.MOD_ID)
