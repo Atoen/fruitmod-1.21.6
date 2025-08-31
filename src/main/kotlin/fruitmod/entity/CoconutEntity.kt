@@ -31,7 +31,7 @@ class CoconutEntity : ThrownItemEntity {
         world: World,
         owner: LivingEntity,
         stack: ItemStack
-    ) : super(EntityType.EGG, owner, world, stack)
+    ) : super(ModEntities.COCONUT, owner, world, stack)
 
     constructor(
         type: EntityType<out ThrownItemEntity>,
@@ -62,6 +62,8 @@ class CoconutEntity : ThrownItemEntity {
             val entity = entityHitResult.entity
             entity.damage(world, damageSources.thrown(this, this.getOwner()), 5f)
 
+            if (world.random.nextFloat() >= 0.1f) return
+
             world.playSound(this, blockPos, ModSounds.BONK, SoundCategory.BLOCKS)
 
             val x = entity.x
@@ -71,9 +73,9 @@ class CoconutEntity : ThrownItemEntity {
             world.spawnParticles(
                 ModParticles.BONK_PARTICLE,
                 x, y, z,
-                1, // count
-                0.0, 0.0, 0.0, // spread
-                0.0 // speed
+                1,
+                0.0, 0.0, 0.0,
+                0.0
             )
         }
     }
@@ -82,6 +84,15 @@ class CoconutEntity : ThrownItemEntity {
         super.onCollision(hitResult)
 
         if (world.isServer) {
+            world.playSound(
+                null,
+                blockPos,
+                ModSounds.COCONUT_LAND,
+                SoundCategory.BLOCKS,
+                1.0f,
+                1.0f
+            )
+
             world.sendEntityStatus(this, 3.toByte())
             discard()
         }

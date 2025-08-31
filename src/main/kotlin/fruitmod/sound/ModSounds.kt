@@ -10,6 +10,10 @@ object ModSounds {
 
     val BONK = registerSoundEvent("bonk")
 
+    val COCONUT_THROW = registerSoundEvent("coconut_throw")
+
+    val COCONUT_LAND = registerSoundEvent("coconut_land")
+
     fun registerSounds() {
         FruitMod.logger.info("Registering sounds for {}", FruitMod.MOD_ID)
     }

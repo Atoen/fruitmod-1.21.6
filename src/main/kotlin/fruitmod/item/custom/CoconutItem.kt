@@ -1,6 +1,8 @@
 package fruitmod.item.custom
 
 import fruitmod.entity.CoconutEntity
+import fruitmod.entity.ModEntities
+import fruitmod.sound.ModSounds
 import net.minecraft.entity.Entity
 import net.minecraft.entity.EntityType
 import net.minecraft.entity.player.PlayerEntity
@@ -28,7 +30,7 @@ class CoconutItem(
             user.x,
             user.y,
             user.z,
-            SoundEvents.ENTITY_EGG_THROW,
+            ModSounds.COCONUT_THROW,
             SoundCategory.PLAYERS,
             0.5f,
             0.4f / (world.getRandom().nextFloat() * 0.4f + 0.8f)
@@ -49,6 +51,6 @@ class CoconutItem(
         stack: ItemStack,
         direction: Direction
     ): ProjectileEntity {
-        return CoconutEntity(EntityType.EGG, pos.x, pos.y, pos.z, world, stack)
+        return CoconutEntity(ModEntities.COCONUT, pos.x, pos.y, pos.z, world, stack)
     }
 }

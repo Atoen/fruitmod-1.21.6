@@ -4,5 +4,25 @@
         "sounds": [
             "fruitmod:bonk"
         ]
+    },
+
+    "coconut_throw": {
+        "subtitle": "sounds.fruitmod.coconut_throw",
+        "sounds": [
+            {
+                "name": "minecraft:entity.egg.throw",
+                "type": "event"
+            }
+        ]
+    },
+
+    "coconut_land": {
+        "subtitle": "sounds.fruitmod.coconut_land",
+        "sounds": [
+            {
+                "name": "minecraft:block.wood.hit",
+                "type": "event"
+            }
+        ]
     }
 }

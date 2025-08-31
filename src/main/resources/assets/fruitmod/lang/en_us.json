@@ -44,6 +44,8 @@
   "itemgroup.fruitmod.mod_items": "FruitMod",
 
   "sounds.fruitmod.bonk": "Bonk!",
+  "sounds.fruitmod.coconut_throw": "Coconut Flies",
+  "sounds.fruitmod.coconut_land": "Coconut Lands",
 
   "block.fruitmod.pedestal": "Pedestal",
   "item.fruitmod.pedestal": "Pedestal",

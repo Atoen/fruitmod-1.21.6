@@ -3,6 +3,7 @@ package fruitmod
 import fruitmod.block.ModBlocks
 import fruitmod.block.entity.ModBlockEntities
 import fruitmod.component.ModDataComponents
+import fruitmod.entity.ModEntities
 import fruitmod.item.ModItemGroups
 import fruitmod.item.ModItems
 import fruitmod.jam.registerJamFunctionality
@@ -15,6 +16,8 @@ import fruitmod.world.gen.ModWorldGeneration
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry
+import net.minecraft.block.DispenserBlock
+import net.minecraft.block.dispenser.ProjectileDispenserBehavior
 import org.slf4j.LoggerFactory
 
 object FruitMod : ModInitializer {
@@ -41,6 +44,7 @@ object FruitMod : ModInitializer {
 
 		ModDataComponents.registerDataComponentTypes()
 
+		ModEntities.registerEntities()
 		ModBlockEntities.registerBlockEntities()
 		ModRecipes.registerRecipes()
 
@@ -59,5 +63,7 @@ object FruitMod : ModInitializer {
 			add(ModBlocks.DRIFTWOOD_PLANKS, 5, 20)
 			add(ModBlocks.DRIFTWOOD_LEAVES, 30, 60)
 		}
+
+		DispenserBlock.registerBehavior(ModItems.COCONUT, ProjectileDispenserBehavior(ModItems.COCONUT))
 	}
 }

@@ -1,9 +1,0 @@
-// 1.21.6	-999999999-01-01T00:00:00	FruitMod/FruitModRecipeProvider
-f46ecf4f2ec21ab79f205cd203a8a0d69f339698 data/fruitmod/advancement/recipes/food/lemon_slice.json
-7040ad94ad0314342beca0c1353b80cc2797338a data/fruitmod/advancement/recipes/food/lime_slice.json
-3dff17c25b35722ae919bd706bb9d3899e2f29cd data/fruitmod/advancement/recipes/food/open_coconut.json
-ffa9c1293f28e9849e2242d7d8969711f9e49a2d data/fruitmod/advancement/recipes/food/orange_slice.json
-bef65d8dd05058a90cb44c099b86421b2dae0c90 data/fruitmod/recipe/lemon_slice.json
-c49e4dc34602f1f647ae26b8883b56244117211e data/fruitmod/recipe/lime_slice.json
-001b3bb118a645b52dd927c8f24770968a9048df data/fruitmod/recipe/open_coconut.json
-f58c6d12f8ac7e9791409f1679577c6bf34457ea data/fruitmod/recipe/orange_slice.json

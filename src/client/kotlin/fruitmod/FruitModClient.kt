@@ -3,6 +3,7 @@ package fruitmod
 import fruitmod.block.JamBlockProperties
 import fruitmod.block.ModBlocks
 import fruitmod.block.entity.ModBlockEntities
+import fruitmod.entity.ModEntities
 import fruitmod.gui.JamStationScreen
 import fruitmod.gui.PedestalScreen
 import fruitmod.item.property.JamPortionsProperty
@@ -17,9 +18,12 @@ import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry
 import net.fabricmc.fabric.api.client.rendering.v1.BlockRenderLayerMap
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry
 import net.fabricmc.fabric.impl.client.rendering.BlockEntityRendererRegistryImpl
 import net.minecraft.client.gui.screen.ingame.HandledScreens
 import net.minecraft.client.render.BlockRenderLayer
+import net.minecraft.client.render.entity.EntityRenderers
+import net.minecraft.client.render.entity.FlyingItemEntityRenderer
 import net.minecraft.client.render.item.property.select.SelectProperties
 import net.minecraft.client.render.item.tint.TintSourceTypes
 import net.minecraft.util.math.ColorHelper
@@ -31,6 +35,7 @@ object FruitModClient : ClientModInitializer {
 		BlockRenderLayerMap.putBlock(ModBlocks.JAM_BLOCK, BlockRenderLayer.TRANSLUCENT)
 
 		BlockEntityRendererRegistryImpl.register(ModBlockEntities.ENCHANTED_GOLDEN_APPLE, ::EnchantedGoldenAppleRenderer)
+		EntityRendererRegistry.register(ModEntities.COCONUT, ::FlyingItemEntityRenderer)
 
 		ParticleFactoryRegistry.getInstance().register(ModParticles.BONK_PARTICLE) {
 			BonkParticle.Factory(it)
